@@ -1,0 +1,15 @@
+#/bin/sh
+
+cmd="php -S localhost:8000 -t web/"
+
+safeRunCommand() {
+   cmnd="$@"                    #...insure whitespace passed and preserved
+   $cmnd
+   ERROR_CODE=$?                #...so we have it for the command we want
+   if [ ${ERROR_CODE} != 0 ]; then
+  	  notify-send -u low "PHP development web server closed" "See logs"
+      exit ${ERROR_CODE}        #...consider 'return()' here
+   fi
+}
+
+safeRunCommand $cmd
