@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>Cours</title>
+	<link rel="stylesheet" type="text/css" href="css/markdown.css">
 </head>
 <body>
 	<?php
