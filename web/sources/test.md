@@ -1,16 +1,28 @@
-# Test page
+# Cours 1
+## C'est quoi un objet?
+
+* Données : définissent l'objet
+* Méthodes : actions que l'on peut accomplir avec l'objet
+
+Les deux sont comprises dans l'objet
+
+### Classe : définit les caractéristiques d'une certaines catégorie d'objet
 
 ```java
-public class MyClass {
+public class PointPlan
+{
+    private float abscisse;
+    private float ordonnee;
 
-  private boolean property;
+    public PointPlan()
+    {
+      this.abscisse = 0;
+      this.ordonnee = 0;
+    }
 
-  public function MyClass()
-  {
-    this.property = false;
-  }
-
+    public void getAbs()
+    {
+      return this.abscisse;
+    }
 }
 ```
-
-Donc, \\(\sum c_iu_i=0 \Rightarrow (c_1+c_2+c_3)v_1+(c_2+c_3)v_2+c_3v_3=0 \Rightarrow c_i=0, \forall i=1, 2, 3.\\).
