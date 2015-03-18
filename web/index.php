@@ -1,46 +1,24 @@
-<!DOCTYPE html>
-<?php require '../vendor/autoload.php'; ?>
-<html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Cours</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<?php
 
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
-
-  <link rel="stylesheet" type="text/css" href="css/markdown.css?debug=test">
-  <link rel="stylesheet" type="text/css" href="css/theme.css?debug=test">
-  
-</head>
-<body>
-  <div class="container">
-    <?php
-      $source = dirname(__FILE__) . '/sources/test.md';
-
-      $parser = new \CoursUniv\Markdown\CoursUnivMarkdown();
-      $config = HTMLPurifier_Config::createDefault();
-      $purifier = new HTMLPurifier($config);
-
-      echo $purifier->purify($parser->parse(file_get_contents($source)));
-    ?>
-  </div>
+/* Ce fichier est le point de départ de l'application. Toute page demandée par
+le client appelle en réalité ce fichier. Nous verrons plus tard comment faire
+pour proposer une page différente en fonction de la requete de l'utilisateur  */
 
 
-  <script src="https://cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
+// Cette ligne permet de charger automatiquement toutes les dépendancs du projet.
+require_once __DIR__.'/../vendor/autoload.php';
 
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {inlineMath: [['\\(','\\)']]}
-  });
-  </script>
-  <script type="text/javascript"
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
+/* Ainsi, pas besoin d'avoir défini la classe Silex\Application, puisque
+l'autoloader sait où chercher pour trouver la classe ! */
+$app = new Silex\Application();
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
-  <script type="text/javascript" src="/js/src/parallax.js"></script>
-</body>
-</html>
+/* Ensuite, on configure notre framework ... */
+require __DIR__.'/../app/bootstrap.php';
+
+/* Et on le fait répondre à la requete de l'utilisateur ! */
+$app->run();
+
+/* Le role de Silex est, en fonction de la configuration qu'on lui donne, de 
+transformer la requete de l'utilisateur en réponse. C'est ce que fait la méthode
+`run`. Maintenant il est quesstion de configurer Silex. Rendez-vous dans le
+fichier `app/bootstrap.php` ! */

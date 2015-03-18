@@ -11,7 +11,8 @@
     "require": {
         "cebe/markdown": "~1.0.1",
         "ezyang/htmlpurifier": "~4.6",
-        "cocur/slugify": "~1.1"
+        "cocur/slugify": "~1.1",
+        "silex/silex": "~1.2"
     },
     "autoload": {
         "psr-0": {
