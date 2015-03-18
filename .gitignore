@@ -1,3 +1,4 @@
 .fuse_hidden*
 /vendor/
 /composer.phar
+/.c9/

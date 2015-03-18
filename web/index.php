@@ -4,12 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Cours</title>
-
-  <link rel="stylesheet" type="text/css" href="css/markdown.css">
-  <link rel="stylesheet" type="text/css" href="css/theme.css">
-  
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
-  <script src="//cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
+  <script src="https://cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
   <script type="text/x-mathjax-config">
@@ -20,6 +16,12 @@
   <script type="text/javascript"
     src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
   </script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css" href="css/markdown.css?debug=test">
+  <link rel="stylesheet" type="text/css" href="css/theme.css?debug=test">
+  
 </head>
 <body>
   <div class="container">

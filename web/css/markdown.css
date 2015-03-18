@@ -1,6 +1,7 @@
 /* Fonts */
 
-@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Oxygen+Mono);
 
 
 h1, h2, h3, h4, h5, h6
@@ -23,5 +24,6 @@ p, a, ul, ol, dl, dt, dd
 }
 
 code {
+  font-family: "Oxygen Mono", monospace !important;
   font-size: 14px;
 }
