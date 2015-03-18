@@ -18,5 +18,19 @@ body {
   -webkit-box-shadow: 0px 0px 10px 0px #656565;
   -o-box-shadow: 0px 0px 10px 0px #656565;
   box-shadow: 0px 0px 10px 0px #656565;
-  filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=10);
+}
+
+body  {
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 1010px) {
+  .container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 10px;
+  }
 }

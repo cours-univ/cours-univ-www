@@ -1,9 +1,12 @@
 /* Fonts */
 
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
+
+
 h1, h2, h3, h4, h5, h6
 {
-	font-family: "Ubuntu Light";
-	color: #222;
+    font-family: "Lora", serif;
+    color: #222;
 }
 
 h1 {font-size: 37px;}
@@ -15,8 +18,8 @@ h6 {font-size: 10px;}
 
 p, a, ul, ol, dl, dt, dd
 {
-	font-family: "Liberation Serif";
-  font-size: 17px;
+    font-family: "Lora", serif;
+    font-size: 17px;
 }
 
 code {

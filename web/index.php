@@ -8,9 +8,10 @@
   <link rel="stylesheet" type="text/css" href="css/markdown.css">
   <link rel="stylesheet" type="text/css" href="css/theme.css">
   
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.4/styles/default.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
   <script src="//cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
   <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {inlineMath: [['\\(','\\)']]}
