@@ -10,6 +10,7 @@
     ],
     "require": {
         "cebe/markdown": "~1.0.1",
+        "ezyang/htmlpurifier": "~4.6",
         "cocur/slugify": "~1.1"
     },
     "autoload": {

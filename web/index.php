@@ -20,7 +20,10 @@
       $source = dirname(__FILE__) . '/sources/test.md';
 
       $parser = new \CoursUniv\Markdown\CoursUnivMarkdown();
-      echo $parser->parse(file_get_contents($source));
+      $config = HTMLPurifier_Config::createDefault();
+      $purifier = new HTMLPurifier($config);
+
+      echo $purifier->purify($parser->parse(file_get_contents($source)));
     ?>
   </div>
 
