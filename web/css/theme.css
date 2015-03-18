@@ -23,6 +23,8 @@ body {
 body  {
   padding-top: 10px;
   padding-bottom: 70px;
+  background-attachment: fixed;
+  background-position: 0px 0px;
 }
 
 @media screen and (max-width: 1010px) {
@@ -43,6 +45,8 @@ body  {
   -o-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
   box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
   background-image: url("/img/noisy-texture.png");
+
+  padding: 1em;
 }
 
 a {

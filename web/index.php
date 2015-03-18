@@ -5,17 +5,6 @@
   <meta charset="UTF-8" />
   <title>Cours</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
-  <script src="https://cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {inlineMath: [['\\(','\\)']]}
-  });
-  </script>
-  <script type="text/javascript"
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-  </script>
   
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -34,5 +23,21 @@
       echo $parser->parse(file_get_contents($source));
     ?>
   </div>
+
+
+  <script src="https://cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['\\(','\\)']]}
+  });
+  </script>
+  <script type="text/javascript"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
+  <script type="text/javascript" src="/js/src/parallax.js"></script>
 </body>
 </html>
