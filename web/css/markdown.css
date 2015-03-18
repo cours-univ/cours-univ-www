@@ -27,3 +27,12 @@ code {
   font-family: "Oxygen Mono", monospace !important;
   font-size: 14px;
 }
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 10px;
+	border: 1px solid #DDD;
+}

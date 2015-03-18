@@ -1,14 +1,15 @@
 # Java - Cours 3 - Tableaux
 
-[xss](http://"onmouseover="alert(1))
+[blocked xss](http://"onmouseover="alert(1))
 
 ## Rappel
 
-Un tableau est une structure de données qui contient un ensemble d'éléments de même type. Chaque élément est associer a un indice :
+Un tableau est une structure de données qui contient un ensemble d'éléments de même type. Chaque élément est associé a un indice :
 
 *Exemple :* 
 
 Ceci est un tableau `t` contenant `n` éléments de type `float`.
+
   0  |  1  |  2  |..|n-1 
 -----|-----|-----|--|---
  5.2f|-4.7f|13.4f|..|2.5f
@@ -49,6 +50,7 @@ A l'étape 1 nous avons créé une variable référence sur un tableau de type `
 
 ### A sa déclaration
 Il est possible d'initialiser un tableau dès sa création en donnant directement les valeurs du tableau :
+
 ```java
 int[] tab = {1, 4, 8, 34};
 ```
@@ -112,18 +114,20 @@ PointPlan[] tab = new PointPlan[3];
 for(int i = 0; i < tab.length; i++){
 	tab[i] = new PointPlan(i, 2*i);
 }
-Pour i, on crée un PointPlan. new retourne la référence de l'objet créé qui est affecté à tab[i]
 ```
+Pour chaque `i`, on crée un `PointPlan`. `new` retourne la référence de l'objet créé qui est affecté à `tab[i]`.
 
 ## Les tableaux en paramètres 
-Il est bien sûr possible de passé, à des méthodes par exemple, des tableaux en paramètre.
+Il est bien sûr possible de passer des tableaux en paramètre de méthodes.
+
 ```java
 public class StatFloat{
 	public StatFloat(float[] tabFloat){
-	// Code
+		// Code
 	}
 }
 ```
+
 ```java
 public static void main(String[] args){
 	float[] tab = {1.5f, -4.3f, 8.6f};
@@ -131,11 +135,13 @@ public static void main(String[] args){
 	StatFloat stat = new StatFloat(tab);
 }
 ```
+
 Ici, nous passons en paramètre la référence sur un tableau de float qui est recupéré dans la classe `StatFloat` avec la variable référence sur un tableau `float[] tabFloat` 
 
 ## Retourner un tableau depuis une méthode
 
-Il est possible de passé des tableaux en paramètre mais également d'en retourner
+Il est possible de passer des tableaux en paramètre mais également d'en retourner
+
 ```java
 public class Equation{
 	private a = 5;
