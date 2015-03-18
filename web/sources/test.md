@@ -1,6 +1,6 @@
 # Cours 2
 
-## <a name="communiquer-objets-methode"></a> Communiquer des objets à une méthode
+## Communiquer des objets à une méthode
 
 Un objet (l'objet courant) peut avoir recours à d'autres objets
 
