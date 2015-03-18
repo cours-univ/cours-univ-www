@@ -14,6 +14,7 @@ public class PointPlan {
   }
 }
 ```
+
 ```java
 public static void(String[] args) { 
 	// ...
@@ -35,6 +36,7 @@ On ne peut toujours retourner qu'une valeur, alors si le besoin se fait de retou
 
 ##Objets composés
 *Exemple* : Un triangle a 3 points, donc on peut avoir :
+
 ```java
 public class Triangle {     
 	private PointPlan a;     
@@ -49,7 +51,9 @@ public class Triangle {
     // ...
 }
 ```
+
 Ici, on crée les `PointPlan` dans la classe, mais on peut également le faire en dehors :
+
 ```java
 public class Triangle {
 	private PointPlan a;
