@@ -30,9 +30,7 @@
     <?php
       $source = dirname(__FILE__) . '/sources/test.md';
 
-      $parser = new \cebe\markdown\GithubMarkdown();
-      $parser->html5 = true;
-
+      $parser = new \CoursUniv\Markdown\CoursUnivMarkdown();
       echo $parser->parse(file_get_contents($source));
     ?>
   </div>
