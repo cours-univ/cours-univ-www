@@ -52,7 +52,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea id="input" type="text" name="markup" onkeydown="change()" ></textarea>
             </form>
             
-            <div id="result" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></div>
+            <div id="result" ></div>
         </div>
 
         <script type="text/javascript">

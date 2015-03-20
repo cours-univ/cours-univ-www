@@ -1,5 +1,10 @@
+body
+{
+	background-color: #FBFBFB;
+}
+
 #input {
-	width: 50%;
+	width: 45%;
 	height: 100%;
 	position: fixed;
 	top: 0;
@@ -15,4 +20,26 @@
 
     /* Pour délimiter quand même avec le rendu */
     border-right: 1px solid #AAA;
+}
+
+#result
+{
+	position: absolute;
+	width: 55%;
+	top: 0;
+	left: 45%;
+	padding: 20px;
+	padding-left: 40px;
+}
+
+/* Z-INDEX */
+
+#input
+{
+	z-index: 100;
+}
+
+#result
+{
+	z-index: 90;
 }
