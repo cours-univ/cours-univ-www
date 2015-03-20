@@ -68,46 +68,62 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $('.tabDisable').on('keydown', function(e)
 		{
+
+	        function insert(charNm, self, charOppos){
+				var beforeSelection = self.value.substring(0, self.selectionStart-1);
+			    var afterSelection = self.value.substring(self.selectionEnd);
+			    var myString = beforeSelection + charNm + selection + (charOppos || charNm) + afterSelection;
+			    self.value = myString;
+			    self.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
+			}
+
+			function delet(self){
+				var beforeSelection = self.value.substring(0, self.selectionStart);
+                var selection = self.value.substring(self.selectionStart+1, self.selectionEnd+1);
+                var afterSelection = self.value.substring(self.selectionEnd+1);
+                self.value = beforeSelection + selection + afterSelection;
+                self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
+			}
+
 			var selection = this.value.substring(this.selectionStart, this.selectionEnd);
 			setTimeout(function(){
 				previousChar = (this.value.substring((this.selectionStart-1), this.selectionStart));
-				console.log(previousChar);
+				if(previousChar === '*' && (e || window.event).keyCode == 220 && (selection.length > 0)){
+                    insert('*', this);
+				}
 				if(previousChar === '(' && (e || window.event).keyCode == 53){
-					var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    console.log(selection);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + '(' + selection + ')' + afterSelection;
-                    this.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
+                    insert('(', this, ')');
 				}
 				if(previousChar === '\'' && (e || window.event).keyCode == 52){
-					var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    console.log(selection);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + '\'' + selection + '\'' + afterSelection;
-                    this.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
+					insert("'", this);
 				}
 				if(previousChar === '"' && (e || window.event).keyCode == 51){
-					var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    console.log(selection);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + '"' + selection + '"' + afterSelection;
-                    this.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
-				}
-				if(previousChar === '*' && (e || window.event).keyCode == 220 && (selection.length > 0)){
-					var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    console.log(selection);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + '*' + selection + '*' + afterSelection;
-                    this.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
+					insert('"', this);
 				}
 				if(previousChar === '{' && (e || window.event).keyCode == 52){
-					var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    console.log(selection);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + '{' + selection + '}' + afterSelection;
-                    this.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
+					insert('{', this, '}');
+				}
+				if(previousChar === '[' && (e || window.event).keyCode == 53){
+					insert('[', this, ']');
 				}
 			}.bind(this), 10);
+
+           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === ')'){
+           		delet(this);
+            }
+           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === '"'){
+           		delet(this);
+            }
+           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === '}'){
+           		delet(this);
+            }
+           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === ']'){
+           		delet(this);
+            }
+           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === "'"){
+           		delet(this);
+            }
+
             if ((e || window.event).keyCode == 9 && lastKey !== 16)
             {
                 e.preventDefault();
@@ -123,7 +139,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }   
                 else {
                     var beforeSelection = this.value.substring(0, this.selectionStart);
-                    var selection = this.value.substring(this.selectionStart, this.selectionEnd);
                     var afterSelection = this.value.substring(this.selectionEnd);
                     this.value = beforeSelection + tabString + selection + afterSelection;
                     this.setSelectionRange((beforeSelection.length) + tabString.length, beforeSelection.length + tabString.length + selection.length);
@@ -136,7 +151,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 var modified = false;
                	if(this.value.substring((this.selectionStart-1), this.selectionStart) === '	'){
                     var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    var selection = this.value.substring(this.selectionStart, this.selectionEnd);
                     var afterSelection = this.value.substring(this.selectionEnd);
                     this.value = beforeSelection + selection + afterSelection;
                     this.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
@@ -153,20 +167,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 this.focus();
             }
 
-            if ((e || window.event).keyCode == 9 && lastKey === 16)
-            {
-                e.preventDefault();
-                var modified = false;
-               	if(this.value.substring((this.selectionStart-1), this.selectionStart) === '	'){
-                    var beforeSelection = this.value.substring(0, this.selectionStart-1);
-                    var selection = this.value.substring(this.selectionStart, this.selectionEnd);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + selection + afterSelection;
-                    this.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
-                    modified = true;
-                }
-                this.focus();
-            }
             buffer = lastKey;
             lastKey = (e || window.event).keyCode;
             if ((e || window.event).keyCode == 9 && buffer === 16 && modified === true)
