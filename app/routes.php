@@ -28,13 +28,8 @@ $app->get('/', function() use($app) {
   // Donc, on charge le fichier en question
   $source = dirname(__FILE__) . '/../web/sources/test.md';
 
-  // On charge le parseur de Markdown
-  $parser = new \CoursUniv\Markdown\CoursUnivMarkdown();
-  $config = HTMLPurifier_Config::createDefault();
-  $purifier = new HTMLPurifier($config);
-
   // On compile le tout et on stocke le résultat dans une variable ...
-  $rendered = $purifier->purify($parser->parse(file_get_contents($source)));
+  $rendered = $app['markdown_parser']->parse(file_get_contents($source));
 
   return $app['twig']->render('home/index.html.twig', array(
      'rendered' => $rendered
