@@ -26,7 +26,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 
         <link rel="stylesheet" type="text/css" href="css/markdown.css?debug=test">
-        <link rel="stylesheet" type="text/css" href="css/theme.css?debug=test">
         <link rel="stylesheet" type="text/css" href="css/editor.css?debug=test">
 
 
@@ -48,10 +47,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <body>
         <div class="container">
+            
             <form id="composer" method="POST">
-                <textarea id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
+                <textarea id="input" type="text" name="markup" onkeydown="change()" ></textarea>
             </form>
-        <div id="result" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></div>
+            
+            <div id="result" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></div>
         </div>
 
         <script type="text/javascript">

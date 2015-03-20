@@ -1,4 +1,18 @@
 #input {
-	width: 100%;
-	height: 300px;
+	width: 50%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-family: "Courier New";
+	font-size: 14px;
+	color: #333;
+	background-color: #F3F3F3;
+
+	/* Pour enlever les bordures par defaut du textarea */
+	border: none;
+    outline: none;
+
+    /* Pour délimiter quand même avec le rendu */
+    border-right: 1px solid #AAA;
 }
