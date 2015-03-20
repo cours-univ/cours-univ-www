@@ -12,7 +12,9 @@
         "cebe/markdown": "~1.0.1",
         "ezyang/htmlpurifier": "~4.6",
         "cocur/slugify": "~1.1",
-        "silex/silex": "~1.2"
+        "silex/silex": "~1.2",
+        "twig/twig": "~1.18",
+        "symfony/twig-bridge": "~2.6"
     },
     "autoload": {
         "psr-0": {

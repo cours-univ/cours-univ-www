@@ -20,7 +20,7 @@ Silex permet donc de router chaque requete vers une fonction qui va la traiter, 
 fonction de la méthode HTTP et de l'URL demandée. */
 
 // Ici, pour chaque requete `GET /` (la page d'accueil) ...
-$app->get('/', function() {
+$app->get('/', function() use($app) {
   // On exécute cette fonction ! 
   // Et devinez quoi, cette fonction va afficher le rendu d'un texte en 
   // Markdown !
@@ -36,20 +36,9 @@ $app->get('/', function() {
   // On compile le tout et on stocke le résultat dans une variable ...
   $rendered = $purifier->purify($parser->parse(file_get_contents($source)));
 
-  // Et on ... quoi ? ob_quoi ?
-  // Eh bien Jamy c'est très simple : normalement, quand tu fais `echo 'Hello';`
-  // tu verras affiché dans ton navigateur `Hello`. Mais lorsque tu fais
-  // `ob_start()` avant, touuuut ce qui sera affiché ...
-  ob_start();
-  require '../views/index.php';
-  $view = ob_get_clean(); // ... sera retourné en tant que `string` ici.
-
-  // D'ailleurs, vous voulez voir ce qui va s'afficher ? Alorrs go dans
-  // `views/index.php`.
-
-  // Et pour finir, on renvoie le résultat de la requete en tant que chaine de
-  // caractère.
-  return $view;
+  return $app['twig']->render('home/index.html.twig', array(
+     'rendered' => $rendered
+  ));
 
   /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le 
   moment ... */

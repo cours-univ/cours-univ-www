@@ -15,6 +15,8 @@ $app = new Silex\Application();
 /* Ensuite, on configure notre framework ... */
 require __DIR__.'/../app/bootstrap.php';
 
+$app['debug'] = true;
+
 /* Et on le fait répondre à la requete de l'utilisateur ! */
 $app->run();
 
