@@ -9,6 +9,7 @@ Un tableau est une structure de données qui contient un ensemble d'éléments d
 *Exemple :* 
 
 Ceci est un tableau `t` contenant `n` éléments de type `float`.
+
   0  |  1  |  2  |..|n-1 
 -----|-----|-----|--|---
  5.2f|-4.7f|13.4f|..|2.5f
@@ -135,7 +136,8 @@ Ici, nous passons en paramètre la référence sur un tableau de float qui est r
 
 ## Retourner un tableau depuis une méthode
 
-Il est possible de passé des tableaux en paramètre mais également d'en retourner
+Il est possible de passé des tableaux en paramètre mais également d'en retourner :
+
 ```java
 public class Equation{
 	private a = 5;

@@ -49,14 +49,15 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <div class="container">
             <form id="composer" method="POST">
-                <textarea id="input" type="text" name="markup" onkeydown="change()" ></textarea>
+                <textarea id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
             </form>
-        <div id="result"></div>
+        <div id="result" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></div>
         </div>
 
         <script type="text/javascript">
 
         var input = document.getElementById('input');
+        input.focus();
         var result = document.getElementById('result');
         var timer = null;
 
@@ -68,9 +69,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             resetTimer();
             timer = setTimeout(function(){
                 console.log(input.value);
-                // result.innerHTML =input.innerHTML;
                 appelAjax();
-            }, 500);
+            }, 500);	
+            input.focus();
         }
 
         function appelAjax(){
