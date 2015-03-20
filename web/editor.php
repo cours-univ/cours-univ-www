@@ -42,7 +42,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
-        <script type="text/javascript" src="/js/src/parallax.js"></script>
     </head>
 
     <body>
