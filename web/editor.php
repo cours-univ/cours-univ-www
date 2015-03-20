@@ -66,97 +66,124 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         var buffer;
         var previousChar;
 
+        var character = [
+        {
+        	charac : '(',
+        	characOppos : ')',
+			keyCodeCharac : 53,
+			exept : false
+        },
+        {
+        	charac : '{',
+        	characOppos : '}',
+			keyCodeCharac : 52,
+			exept : false
+        },
+        {
+        	charac : '[',
+        	characOppos : ']',
+			keyCodeCharac : 53,
+			exept : false
+        },
+        {
+        	charac : '"',
+        	characOppos : '"',
+			keyCodeCharac : 51,
+			exept : false
+        },
+        {
+        	charac : '*',
+        	characOppos : '*',
+			keyCodeCharac : 220,
+			exept : true
+        },
+        {
+        	charac : "'",
+        	characOppos : "'",
+			keyCodeCharac : 52,
+			exept : false
+        },
+        ]
+
+
+
+
         $('.tabDisable').on('keydown', function(e)
 		{
+			var actualKey = (e || window.event).keyCode;
 
 	        function insert(charNm, self, charOppos){
 				var beforeSelection = self.value.substring(0, self.selectionStart-1);
 			    var afterSelection = self.value.substring(self.selectionEnd);
-			    var myString = beforeSelection + charNm + selection + (charOppos || charNm) + afterSelection;
+			    var myString = beforeSelection + charNm + selection + charOppos + afterSelection;
 			    self.value = myString;
 			    self.setSelectionRange((beforeSelection.length + 1), (beforeSelection.length + selection.length + 1));
 			}
 
 			function delet(self){
-				var beforeSelection = self.value.substring(0, self.selectionStart);
-                var selection = self.value.substring(self.selectionStart+1, self.selectionEnd+1);
-                var afterSelection = self.value.substring(self.selectionEnd+1);
-                self.value = beforeSelection + selection + afterSelection;
-                self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
+					var beforeSelection = self.value.substring(0, self.selectionStart);
+	                var selection = self.value.substring(self.selectionStart+1, self.selectionEnd+1);
+	                var afterSelection = self.value.substring(self.selectionEnd+1);
+	                self.value = beforeSelection + selection + afterSelection;
+	                self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
 			}
-
 			var selection = this.value.substring(this.selectionStart, this.selectionEnd);
+
+			//setTimeout obligatoire
+			//Gere l'autocompletition quand on insere un caractère contenu dans var charater
 			setTimeout(function(){
 				previousChar = (this.value.substring((this.selectionStart-1), this.selectionStart));
-				if(previousChar === '*' && (e || window.event).keyCode == 220 && (selection.length > 0)){
-                    insert('*', this);
+
+				for(var i = 0; i < character.length; i++){
+					if(previousChar === character[i].charac && actualKey == character[i].keyCodeCharac && character[i].exept === false){
+						insert(character[i].charac, this, character[i].characOppos);
+						break;
+					}
 				}
-				if(previousChar === '(' && (e || window.event).keyCode == 53){
-                    insert('(', this, ')');
-				}
-				if(previousChar === '\'' && (e || window.event).keyCode == 52){
-					insert("'", this);
-				}
-				if(previousChar === '"' && (e || window.event).keyCode == 51){
-					insert('"', this);
-				}
-				if(previousChar === '{' && (e || window.event).keyCode == 52){
-					insert('{', this, '}');
-				}
-				if(previousChar === '[' && (e || window.event).keyCode == 53){
-					insert('[', this, ']');
-				}
+
 			}.bind(this), 10);
 
-           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === ')'){
-           		delet(this);
-            }
-           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === '"'){
-           		delet(this);
-            }
-           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === '}'){
-           		delet(this);
-            }
-           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === ']'){
-           		delet(this);
-            }
-           	if((e || window.event).keyCode == 8 && this.value.substring(this.selectionStart, (this.selectionStart+1)) === "'"){
-           		delet(this);
+			//caractere avant et apres le curseur
+			var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
+			previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
+
+			//delete le charatere opposé s'il est collé a son opposé comme : ()
+            for(var i = 0; i < character.length; i++){
+            	if(actualKey === 8 && previousChar === character[i].charac && nextChar === character[i].characOppos){
+            		delet(this);
+            		break
+            	}
             }
 
-            if ((e || window.event).keyCode == 9 && lastKey !== 16)
+            //Gere la tabulation
+            if (actualKey == 9 && lastKey !== 16)
             {
                 e.preventDefault();
                 var tabString = String.fromCharCode(9);
 
-                if(window.ActiveXObject){
-                    var textR = document.selection.createRange();
-                    var selection = textR.text;
-                    textR.text = tabString + selection;
-                    textR.moveStart("character",-selection.length);
-                    textR.moveEnd("character", 0);
-                    textR.select();
-                }   
-                else {
-                    var beforeSelection = this.value.substring(0, this.selectionStart);
-                    var afterSelection = this.value.substring(this.selectionEnd);
-                    this.value = beforeSelection + tabString + selection + afterSelection;
-                    this.setSelectionRange((beforeSelection.length) + tabString.length, beforeSelection.length + tabString.length + selection.length);
-                }
+                var beforeSelection = this.value.substring(0, this.selectionStart);
+                var afterSelection = this.value.substring(this.selectionEnd);
+                this.value = beforeSelection + tabString + selection + afterSelection;
+                this.setSelectionRange((beforeSelection.length) + tabString.length, beforeSelection.length + tabString.length + selection.length);
+
                 this.focus();
             }
-            if ((e || window.event).keyCode == 9 && lastKey === 16)
+
+            //Gere le shift + tabulation
+            if (actualKey == 9 && lastKey === 16)
             {
                 e.preventDefault();
                 var modified = false;
-               	if(this.value.substring((this.selectionStart-1), this.selectionStart) === '	'){
+                //Cas de la tabulation derriere le curseur
+               	if(previousChar === '	'){
                     var beforeSelection = this.value.substring(0, this.selectionStart-1);
                     var afterSelection = this.value.substring(this.selectionEnd);
                     this.value = beforeSelection + selection + afterSelection;
                     this.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
                     modified = true;
                 }
-               	else if(this.value.substring(this.selectionStart, (this.selectionStart+1)) === '	'){
+                //cas de la tabluation devant le curseur
+               	else if(nextChar === '	'){
                     var beforeSelection = this.value.substring(0, this.selectionStart);
                     var selection = this.value.substring(this.selectionStart+1, this.selectionEnd+1);
                     var afterSelection = this.value.substring(this.selectionEnd+1);
@@ -167,13 +194,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 this.focus();
             }
 
+            //permet de garde le shift + tabulation si on est fait plusieur
             buffer = lastKey;
-            lastKey = (e || window.event).keyCode;
-            if ((e || window.event).keyCode == 9 && buffer === 16 && modified === true)
+            lastKey = actualKey;
+            if (actualKey == 9 && buffer === 16 && modified === true)
             {
                 lastKey = 16;
             }
-            console.log(lastKey);
 		});
 
         function resetTimer(){
