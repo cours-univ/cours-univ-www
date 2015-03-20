@@ -16,7 +16,7 @@ class CoursUnivMarkdownProvider implements ServiceProviderInterface
     public function register(Application $app)
     {
         $parser = new \CoursUniv\Markdown\CoursUnivMarkdown();
-        $app['markdown_parser'] = $parser;
+        $app['markdown.parser'] = $parser;
     }
 
     public function boot(Application $app)

@@ -25,22 +25,18 @@ fonction de la méthode HTTP et de l'URL demandée. */
 
 // Ici, pour chaque requete `GET /` (la page d'accueil) ...
 $app->get('/', function() use($app) {
-  // On exécute cette fonction ! 
-  // Et devinez quoi, cette fonction va afficher le rendu d'un texte en 
-  // Markdown !
-  
-  // Donc, on charge le fichier en question
-  $source = dirname(__FILE__) . '/../web/sources/test.md';
+    // On exécute cette fonction !
+    // Et devinez quoi, cette fonction va afficher le rendu d'un texte en
+    // Markdown !
 
-  // On compile le tout et on stocke le résultat dans une variable ...
-  $rendered = $app['markdown_parser']->parse(file_get_contents($source));
+    $courses = $app['dao.course']->findAll();
 
-  return $app['twig']->render('home/index.html.twig', array(
-     'rendered' => $rendered
-  ));
+    return $app['twig']->render('home/index.html.twig', array(
+        'courses' => $courses
+    ));
 
-  /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le 
-  moment ... */
+    /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le
+    moment ... */
 });
 
 $app->get('/editor', function() use($app) {
@@ -49,7 +45,7 @@ $app->get('/editor', function() use($app) {
 
 $app->post('/editor', function(Request $request) use($app) {
     if($request->request->has('markup')) {
-        return $app['markdown_parser']->parse(($request->request->get('markup')));
+        return $app['markdown.parser']->parse(($request->request->get('markup')));
     } else {
         return new Response('No markup given !', 403);
     }

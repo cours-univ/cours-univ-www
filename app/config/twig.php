@@ -10,3 +10,13 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     //En parlant de template, si on allait en voir une ?
     // `views/home/index.html.twig`
 ));
+
+$app['twig'] = $app->share($app->extend('twig', function (\Twig_Environment $twig, Silex\Application $app) {
+    $twig->addExtension(
+        new \CoursUniv\Markdown\Twig\CoursUnivMarkdownExtension(
+            $app['markdown.parser']
+        )
+    );
+
+    return $twig;
+}));

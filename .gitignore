@@ -3,3 +3,4 @@
 /composer.phar
 /.c9/
 /.idea/
+/app/parameters.*.php
