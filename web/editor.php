@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         tex2jax: {inlineMath: [['\\(','\\)']]}
         });
         </script>
-        <script type="text/javascript"
+        <script type="text/MathJaxvascript"
         src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
         </script>
 
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </form>
             
-            <div id="result" ></div>
+            <div id="result"></div>
         </div>
 
         <script type="text/javascript">

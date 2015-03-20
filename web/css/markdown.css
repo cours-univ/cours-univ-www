@@ -36,3 +36,13 @@ th, td {
 	padding: 10px;
 	border: 1px solid #DDD;
 }
+
+.hljs {
+  -moz-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
+  -o-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
+  box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
+  background-image: url("/img/noisy-texture.png");
+
+  padding: 1em;
+}
