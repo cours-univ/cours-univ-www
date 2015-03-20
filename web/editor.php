@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <div class="container">
             <form id="composer" method="POST">
-                <textarea id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
+                <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
             </form>
         <div id="result" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></div>
         </div>
@@ -61,6 +61,32 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         var result = document.getElementById('result');
         var timer = null;
 
+        $('.tabDisable').on('keydown', function(e)
+		{ 
+		  if ((e || window.event).keyCode == 9)  
+		  {
+		    e.preventDefault();
+		    var tabString = String.fromCharCode(9);
+                
+            if(window.ActiveXObject){
+                var textR = document.selection.createRange();
+                var selection = textR.text;
+                textR.text = tabString + selection;
+                textR.moveStart("character",-selection.length);
+	    		textR.moveEnd("character", 0);
+                textR.select();
+            }
+            else {
+                var beforeSelection = this.value.substring(0, this.selectionStart);
+                var selection = this.value.substring(this.selectionStart, this.selectionEnd);
+                var afterSelection = this.value.substring(this.selectionEnd);
+                this.value = beforeSelection + tabString + selection + afterSelection;
+                this.setSelectionRange(beforeSelection.length + tabString.length, beforeSelection.length + tabString.length + selection.length);
+            }                
+            this.focus();
+		  }	
+		});	
+
         function resetTimer(){
             clearTimeout(timer);
         }
@@ -68,7 +94,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         function change(e) {
             resetTimer();
             timer = setTimeout(function(){
-                console.log(input.value);
                 appelAjax();
             }, 500);	
             input.focus();
