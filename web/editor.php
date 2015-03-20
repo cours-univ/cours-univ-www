@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             <form id="composer" method="POST">
             
-                <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
+                <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" ></textarea>
 
             </form>
             
