@@ -46,14 +46,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <body>
         <div class="container">
-            
-            <form id="composer" method="POST">
-            
-                <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" ></textarea>
-
-            </form>
-            
-            <div id="result" ></div>
         </div>
 
         <script type="text/javascript">
@@ -64,12 +56,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         var timer = null;
 
         $('.tabDisable').on('keydown', function(e)
-		{ 
-		  if ((e || window.event).keyCode == 9)  
+		{
+		  if ((e || window.event).keyCode == 9)
 		  {
 		    e.preventDefault();
 		    var tabString = String.fromCharCode(9);
-                
+
             if(window.ActiveXObject){
                 var textR = document.selection.createRange();
                 var selection = textR.text;
@@ -84,10 +76,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 var afterSelection = this.value.substring(this.selectionEnd);
                 this.value = beforeSelection + tabString + selection + afterSelection;
                 this.setSelectionRange(beforeSelection.length + tabString.length, beforeSelection.length + tabString.length + selection.length);
-            }                
+            }
             this.focus();
-		  }	 
-		});	
+		  }
+		});
 
         function resetTimer(){
             clearTimeout(timer);
@@ -97,7 +89,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             resetTimer();
             timer = setTimeout(function(){
                 appelAjax();
-            }, 500);	
+            }, 500);
             input.focus();
         }
 

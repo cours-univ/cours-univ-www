@@ -1,0 +1,84 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.4/styles/github.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+
+<link rel="stylesheet" type="text/css" href="/css/markdown.css?debug=test">
+<link rel="stylesheet" type="text/css" href="/css/editor.css?debug=test">
+
+{% endblock %}
+
+
+{% block container %}
+
+<form id="composer" method="POST">
+    <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" ></textarea>
+</form>
+<div id="result" ></div>
+
+{% endblock %}
+
+{% block javascripts %}
+
+{{ parent() }}
+<script type="text/javascript">
+
+    var input = document.getElementById('input');
+    input.focus();
+    var result = document.getElementById('result');
+    var timer = null;
+
+    $('.tabDisable').on('keydown', function(e)
+    {
+        if ((e || window.event).keyCode == 9)
+        {
+            e.preventDefault();
+            var tabString = String.fromCharCode(9);
+
+            if(window.ActiveXObject){
+                var textR = document.selection.createRange();
+                var selection = textR.text;
+                textR.text = tabString + selection;
+                textR.moveStart("character",-selection.length);
+                textR.moveEnd("character", 0);
+                textR.select();
+            }
+            else {
+                var beforeSelection = this.value.substring(0, this.selectionStart);
+                var selection = this.value.substring(this.selectionStart, this.selectionEnd);
+                var afterSelection = this.value.substring(this.selectionEnd);
+                this.value = beforeSelection + tabString + selection + afterSelection;
+                this.setSelectionRange(beforeSelection.length + tabString.length, beforeSelection.length + tabString.length + selection.length);
+            }
+            this.focus();
+        }
+    });
+
+    function resetTimer(){
+        clearTimeout(timer);
+    }
+
+    function change(e) {
+        resetTimer();
+        timer = setTimeout(function(){
+            appelAjax();
+        }, 500);
+        input.focus();
+    }
+
+    function appelAjax(){
+        $.post( "editor", {
+            markup: $('#input').val()
+        },function( data ) {
+            $( "#result" ).html(data);
+            $('pre code').each(function(i, block){
+                hljs.highlightBlock(block);
+            })
+        });
+    }
+</script>
+
+{% endblock %}

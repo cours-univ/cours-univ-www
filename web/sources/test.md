@@ -31,7 +31,10 @@ Le but est de représenter chaque entité et association sous forme tabulaire. O
 
 - Jointure = Sous ensemble du produit cartésien. Produit cartésien avec quelque ligne en moins (⋈). La jointure est une sélection de produit cartésien (produit cartésien à condition que tel et tel condition soit rempli)
 - Division = Le résultat affiche les enseignants qui enseigne aux étudiants (÷)
-=======
+
+
+
+
 # Java - Cours 3 - Tableaux
 
 [blocked xss](http://"onmouseover="alert(1))
