@@ -48,11 +48,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="container">
             
             <form id="composer" method="POST">
-<<<<<<< HEAD
+            
                 <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" style="font-family: Consolas ;color: #5a5a5a; font-size: 18px;"></textarea>
-=======
-                <textarea id="input" type="text" name="markup" onkeydown="change()" ></textarea>
->>>>>>> de4b3dac76093e7e1fe1d737f1e98ed59190d28b
+
             </form>
             
             <div id="result" ></div>
