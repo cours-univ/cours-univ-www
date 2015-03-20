@@ -45,7 +45,7 @@ body  {
   -o-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
   box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
   background-image: url("/img/noisy-texture.png");
-
+  word-wrap: break-word;
   padding: 1em;
 }
 
