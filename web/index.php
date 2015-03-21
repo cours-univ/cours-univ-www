@@ -12,10 +12,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 l'autoloader sait où chercher pour trouver la classe ! */
 $app = new Silex\Application();
 
+$app['env'] = 'dev';
+
 /* Ensuite, on configure notre framework ... */
 require __DIR__.'/../app/bootstrap.php';
 
-$app['debug'] = true;
 
 /* Et on le fait répondre à la requete de l'utilisateur ! */
 $app->run();

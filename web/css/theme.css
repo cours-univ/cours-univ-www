@@ -1,3 +1,4 @@
+
 body {
   background-image: url("/img/shattered.png");
   background-repeat: repeat;
@@ -39,15 +40,7 @@ body  {
   }
 }
 
-.hljs {
-  -moz-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
-  -webkit-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
-  -o-box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
-  box-shadow: inset 0px 0px 9px rgba(0,0,0,0.3);
-  background-image: url("/img/noisy-texture.png");
-  word-wrap: break-word;
-  padding: 1em;
-}
+
 
 a {
   color: #458;

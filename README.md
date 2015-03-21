@@ -5,10 +5,24 @@ Site d'hébergement de cours, initialement crée pour l'université Paris 13
 
 ## Installation 
 
+### Prérequis
+
+* PHP 5.4 ou supérieur
+* `php5-pgsql` ou équivalent (pour le driver pdo_pgsql)
+
 ### Composer
 
 * Téléchargez Composer : [https://getcomposer.org/download/](https://getcomposer.org/download/)
 * Dans un shell exécutez la commande `php composer.phar install`
+
+### Configuration
+
+* Dans le fichier `web/index.php`, assurez vous que la variable `$app['env']` est initialisée
+  à la valeur désirée, `dev`  pour une exécution en serveur de développemet, ou `prod` pour
+  le serveur de production.
+* Dans votre base de données, exécuter le fichier `db/schema.sql`.
+* Si vous êtes en développement, vous pouvez évenuellement exécuter le fichier `db/values.sql` pour
+  avoir une base de données de tests.
 
 ### Serveur de développement
 

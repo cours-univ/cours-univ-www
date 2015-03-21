@@ -1,5 +1,12 @@
 {% extends 'layout.html.twig' %}
 
 {% block container %}
-    {{ rendered|raw }}
+    {% for c in courses %}
+        {{ c.current.content|markdown }}
+        {% if not loop.last %}
+            <hr/>
+        {% endif %}
+    {% else %}
+        <h1>Aucun cours disponible ...</h1>
+    {% endfor %}
 {% endblock %}

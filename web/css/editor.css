@@ -1,0 +1,50 @@
+body
+{
+	background-color: #FBFBFB;
+}
+
+#input {
+	width: 45%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	font-family: "Courier New";
+	font-size: 12.5px;
+	color: #333;
+	background-color: #F3F3F3;
+
+	padding: 10px;
+	box-sizing: border-box;
+
+	/* Pour enlever les bordures par defaut du textarea */
+	border: none;
+    outline: none;
+
+    /* Pour délimiter quand même avec le rendu */
+    border-right: 1px solid #AAA;
+}
+
+#result
+{
+	position: absolute;
+	width: 55%;
+	top: 0;
+	left: 45%;
+	padding: 20px;
+	padding-left: 40px;
+
+	box-sizing: border-box;
+}
+
+/* Z-INDEX */
+
+#input
+{
+	z-index: 100;
+}
+
+#result
+{
+	z-index: 90;
+}

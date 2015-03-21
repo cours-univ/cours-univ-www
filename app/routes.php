@@ -1,5 +1,8 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 /* On entre dans le vif du sujet. C'est ici que l'on va dire à Silex à quelle
 requetes répondre, et surtout comment répondre ! 
 On va donc commencer par des rappels : HTTP. Oui, http://www.google.fr par
@@ -19,22 +22,31 @@ la ressource que l'on veut obtenir.
 Silex permet donc de router chaque requete vers une fonction qui va la traiter, en
 fonction de la méthode HTTP et de l'URL demandée. */
 
+
 // Ici, pour chaque requete `GET /` (la page d'accueil) ...
 $app->get('/', function() use($app) {
-  // On exécute cette fonction ! 
-  // Et devinez quoi, cette fonction va afficher le rendu d'un texte en 
-  // Markdown !
-  
-  // Donc, on charge le fichier en question
-  $source = dirname(__FILE__) . '/../web/sources/test.md';
+    // On exécute cette fonction !
+    // Et devinez quoi, cette fonction va afficher le rendu d'un texte en
+    // Markdown !
 
-  // On compile le tout et on stocke le résultat dans une variable ...
-  $rendered = $app['markdown_parser']->parse(file_get_contents($source));
+    $courses = $app['dao.course']->findAll();
 
-  return $app['twig']->render('home/index.html.twig', array(
-     'rendered' => $rendered
-  ));
+    return $app['twig']->render('home/index.html.twig', array(
+        'courses' => $courses
+    ));
 
-  /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le 
-  moment ... */
+    /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le
+    moment ... */
+});
+
+$app->get('/editor', function() use($app) {
+    return $app['twig']->render('home/editor.html.twig', array());
+});
+
+$app->post('/editor', function(Request $request) use($app) {
+    if($request->request->has('markup')) {
+        return $app['markdown.parser']->parse(($request->request->get('markup')));
+    } else {
+        return new Response('No markup given !', 403);
+    }
 });
