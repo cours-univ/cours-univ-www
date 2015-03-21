@@ -72,6 +72,10 @@ class Version
         return $this;
     }
 
+<<<<<<< HEAD
 
 
 	}
+=======
+}
+>>>>>>> f412a9bd9edc16add37bc1cc53f5b1f59aaef15f

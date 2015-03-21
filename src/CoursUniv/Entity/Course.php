@@ -8,6 +8,11 @@
 
 namespace CoursUniv\Entity;
 
+<<<<<<< HEAD
+=======
+use CoursUniv\Entity\Version;
+
+>>>>>>> f412a9bd9edc16add37bc1cc53f5b1f59aaef15f
 
 class Course {
     /**
@@ -21,9 +26,15 @@ class Course {
     private $name;
 
     /**
+<<<<<<< HEAD
      * @var string
      */
     private $content;
+=======
+     * @var Version
+     */
+    private $current;
+>>>>>>> f412a9bd9edc16add37bc1cc53f5b1f59aaef15f
 
     /**
      * @return int
@@ -62,6 +73,7 @@ class Course {
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getContent()
@@ -78,4 +90,24 @@ class Course {
         $this->content = $content;
         return $this;
     }
+=======
+     * @return Version
+     */
+    public function getCurrent()
+    {
+        return $this->current;
+    }
+
+    /**
+     * @param Version $current
+     * @return Course
+     */
+    public function setCurrent($current)
+    {
+        $this->current = $current;
+        return $this;
+    }
+
+
+>>>>>>> f412a9bd9edc16add37bc1cc53f5b1f59aaef15f
 }
