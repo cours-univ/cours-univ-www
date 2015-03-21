@@ -4,3 +4,5 @@
 /.c9/
 /.idea/
 /app/parameters.*.php
+/app/parameters.dev.php
+/app/parameters.prod.php
