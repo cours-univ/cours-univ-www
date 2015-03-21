@@ -8,6 +8,8 @@
 
 namespace CoursUniv\Entity;
 
+use CoursUniv\Entity\Version;
+
 
 class Course {
     /**
@@ -21,9 +23,9 @@ class Course {
     private $name;
 
     /**
-     * @var string
+     * @var Version
      */
-    private $content;
+    private $current;
 
     /**
      * @return int
@@ -62,20 +64,22 @@ class Course {
     }
 
     /**
-     * @return string
+     * @return Version
      */
-    public function getContent()
+    public function getCurrent()
     {
-        return $this->content;
+        return $this->current;
     }
 
     /**
-     * @param string $content
+     * @param Version $current
      * @return Course
      */
-    public function setContent($content)
+    public function setCurrent($current)
     {
-        $this->content = $content;
+        $this->current = $current;
         return $this;
     }
+
+
 }

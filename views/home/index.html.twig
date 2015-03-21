@@ -2,7 +2,7 @@
 
 {% block container %}
     {% for c in courses %}
-        {{ c.content|markdown }}
+        {{ c.current.content|markdown }}
         {% if not loop.last %}
             <hr/>
         {% endif %}

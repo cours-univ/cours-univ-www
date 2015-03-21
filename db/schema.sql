@@ -1,10 +1,22 @@
+-- Version
+
+CREATE TABLE version
+(
+  id_version SERIAL PRIMARY KEY NOT NULL,
+  content_version VARCHAR NOT NULL,
+  datetime_version TIMESTAMP NOT NULL,
+  comment_version VARCHAR,
+  next_version INT,
+  FOREIGN KEY (next_version) REFERENCES version (id_version)
+);
+
 -- Course
 
-CREATE TABLE public.course
+CREATE TABLE course
 (
-    id_course SERIAL PRIMARY KEY NOT NULL,
-    name_course VARCHAR NOT NULL,
-    content_course TEXT NOT NULL
+  id_course SERIAL PRIMARY KEY NOT NULL,
+  name_course VARCHAR NOT NULL,
+  current_version_course INT NOT NULL,
+  FOREIGN KEY (current_version_course) REFERENCES version (id_version)
 );
-ALTER TABLE public.course
- ADD CONSTRAINT unique_slug_course UNIQUE (slug_course);
+CREATE UNIQUE INDEX unique_name_course ON course (name_course);
