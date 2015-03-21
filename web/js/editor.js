@@ -36,13 +36,7 @@ var character = [
         characOppos : '*',
         keyCodeCharac : 220,
         exept : true
-    },
-    {
-        charac : "'",
-        characOppos : "'",
-        keyCodeCharac : 52,
-        exept : false
-    },
+    }
 ]
 
 
@@ -54,6 +48,8 @@ $('.tabDisable').on('keydown', function(e)
     var shiftKey = (e || window.event).shiftKey;
     var altKey = (e || window.event).altKey;
     var ctrlKey = (e || window.event).ctrlKey;
+
+    console.log(actualKey);
 
     function insert(charNm, self, charOppos){
         var beforeSelection = self.value.substring(0, self.selectionStart-1);
@@ -73,13 +69,18 @@ $('.tabDisable').on('keydown', function(e)
     var selection = this.value.substring(this.selectionStart, this.selectionEnd);
 
 
-    console.log(actualKey);
     if(actualKey === 67 && altKey && ctrlKey){
         e.preventDefault();
-        console.log('emlv');
+
+        var tabString = String.fromCharCode(13);
+        var beforeSelection = this.value.substring(0, this.selectionStart);
+        var selection = this.value.substring(this.selectionStart, this.selectionEnd);
+        var afterSelection = this.value.substring(this.selectionEnd);
+        this.value = beforeSelection + tabString + tabString + '```' + tabString + '```' + selection + afterSelection;
+        this.setSelectionRange(beforeSelection.length + 5, beforeSelection.length + 5 + selection.length);
     }
 
-    //setTimeout obligatoire
+    //setTimeout obligatoired
     //Gere l'autocompletition quand on insere un caractère contenu dans var charater
     setTimeout(function(){
         previousChar = (this.value.substring((this.selectionStart-1), this.selectionStart));
