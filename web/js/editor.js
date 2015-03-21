@@ -52,6 +52,8 @@ $('.tabDisable').on('keydown', function(e)
 {
     var actualKey = (e || window.event).keyCode;
     var shiftKey = (e || window.event).shiftKey;
+    var altKey = (e || window.event).altKey;
+    var ctrlKey = (e || window.event).ctrlKey;
 
     function insert(charNm, self, charOppos){
         var beforeSelection = self.value.substring(0, self.selectionStart-1);
@@ -69,6 +71,13 @@ $('.tabDisable').on('keydown', function(e)
         self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
     }
     var selection = this.value.substring(this.selectionStart, this.selectionEnd);
+
+
+    console.log(actualKey);
+    if(actualKey === 67 && altKey && ctrlKey){
+        e.preventDefault();
+        console.log('emlv');
+    }
 
     //setTimeout obligatoire
     //Gere l'autocompletition quand on insere un caractère contenu dans var charater
@@ -97,8 +106,7 @@ $('.tabDisable').on('keydown', function(e)
     }
 
     //Gere la tabulation
-    if (actualKey == 9 && !shiftKey)
-    {
+    if (actualKey == 9 && !shiftKey){
         console.log(shiftKey);
         e.preventDefault();
         var tabString = String.fromCharCode(9);
@@ -112,8 +120,7 @@ $('.tabDisable').on('keydown', function(e)
     }
 
     //Gere le shift + tabulation
-    if (actualKey == 9 && shiftKey)
-    {
+    if(actualKey == 9 && shiftKey){
         e.preventDefault();
         var modified = false;
         //Cas de la tabulation derriere le curseur
