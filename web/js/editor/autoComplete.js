@@ -38,7 +38,7 @@ function deleteAutocomplete(self, actualKey, nextChar, previousChar){
             return true;
         }
         //Si on ecrit ' () ' et qu'on rajoute ' ) ' permet de ne pas ecrire ca ' ()) '
-        if(actualKey === character[i].keyCodeCharacOppos && nextChar === character[i].characOppos){
+        if((actualKey === character[i].keyCodeCharacOppos || actualKey === character[i].keyCodeCharacOppos2) && nextChar === character[i].characOppos){
             deleteChar(self);
             return true;
         }

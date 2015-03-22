@@ -7,13 +7,16 @@ var character = [
         charac : '(',
         characOppos : ')',
         keyCodeCharac : 53,
-        keyCodeCharacOppos : 219
+        keyCodeCharacOppos : 219,
+        keyCodeCharacOppos2 : 169
+
     },
     {
         charac : '{',
         characOppos : '}',
         keyCodeCharac : 52,
-        keyCodeCharacOppos : 187
+        keyCodeCharacOppos : 187,
+        keyCodeCharacOppos : 61
     },
     {
         charac : '[',
@@ -42,7 +45,7 @@ input.onkeydown = function(e){
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
 
-    //console.log(actualKey);
+    console.log(actualKey);
 
     if(!deleteAutocomplete(this, actualKey, nextChar, previousChar)){
         autocomplete(this, actualKey, selection);
