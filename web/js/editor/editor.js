@@ -6,22 +6,26 @@ var character = [
     {
         charac : '(',
         characOppos : ')',
-        keyCodeCharac : 53
+        keyCodeCharac : 53,
+        keyCodeCharacOppos : 219
     },
     {
         charac : '{',
         characOppos : '}',
-        keyCodeCharac : 52
+        keyCodeCharac : 52,
+        keyCodeCharacOppos : 187
     },
     {
         charac : '[',
         characOppos : ']',
-        keyCodeCharac : 53
+        keyCodeCharac : 53,
+        keyCodeCharacOppos : 219
     },
     {
         charac : '"',
         characOppos : '"',
-        keyCodeCharac : 51
+        keyCodeCharac : 51,
+        keyCodeCharacOppos : 51
     }
 ]
 
@@ -38,13 +42,14 @@ input.onkeydown = function(e){
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
 
-    //console.log(actualKey);
+    console.log(actualKey);
 
-    autocomplete(this, actualKey, selection);
-    addCodeQuote(this, actualKey, e, selection);
+    if(!deleteAutocomplete(this, actualKey, nextChar, previousChar)){
+        autocomplete(this, actualKey, selection);
+        addCodeQuote(this, actualKey, e, selection, previousChar);
+    }
     writeTabulation(this, actualKey, e, shiftKey, selection);
     unWriteTabulation(this, actualKey, e, shiftKey, previousChar, nextChar, selection);
-    deleteAutocomplete(this, actualKey, nextChar, previousChar);
 }
 
 function main(){

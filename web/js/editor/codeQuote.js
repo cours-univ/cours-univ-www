@@ -1,8 +1,10 @@
 //function which add ``` <enter> ``` when user use keybind ctrl + alt + c
-function addCodeQuote(self, actualKey, e, selection){
+function addCodeQuote(self, actualKey, e, selection, previousChar){
     var altKey = (e || window.event).altKey;
     var ctrlKey = (e || window.event).ctrlKey;
-    if(actualKey === 67 && altKey && ctrlKey){
+
+    // ctrl + alt + c
+    if(actualKey === 67 && altKey && ctrlKey && previousChar !== '`'){
         e.preventDefault();
 
         var enterString = String.fromCharCode(13);
@@ -24,6 +26,11 @@ function addCodeQuote(self, actualKey, e, selection){
         }
         self.value = beforeSelection + addLeft + bonus + selection + addRight+ afterSelection;
         self.setSelectionRange(beforeSelection.length + addLeft.length, beforeSelection.length + addLeft.length);
+    }
+    else if(actualKey === 67 && altKey && !ctrlKey && previousChar !== '`'){
+        e.preventDefault();
+
+        insertChar(self, '`', selection, '`');
     }
 }
 
