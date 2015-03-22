@@ -42,7 +42,7 @@ input.onkeydown = function(e){
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
 
-    console.log(actualKey);
+    //console.log(actualKey);
 
     if(!deleteAutocomplete(this, actualKey, nextChar, previousChar)){
         autocomplete(this, actualKey, selection);
