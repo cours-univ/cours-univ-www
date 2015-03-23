@@ -15,7 +15,7 @@
 {% block container %}
 
 <form id="composer" method="POST">
-    <textarea class="tabDisable" id="input" type="text" name="markup" onkeydown="change()" ></textarea>
+    <textarea id="input" type="text" name="markup" ></textarea>
 </form>
 <div id="result" ></div>
 
@@ -25,7 +25,10 @@
 
 {{ parent() }}
 
-<script type="text/javascript" src="/js/editor.js"></script>
+<script type="text/javascript" src="/js/editor/editor.js"></script>
+<script type="text/javascript" src="/js/editor/codeQuote.js"></script>
+<script type="text/javascript" src="/js/editor/autoComplete.js"></script>
+<script type="text/javascript" src="/js/editor/tabulation.js"></script>
 
 
 {% endblock %}
