@@ -71,5 +71,4 @@ class Version
         $this->date = $date;
         return $this;
     }
-
 }

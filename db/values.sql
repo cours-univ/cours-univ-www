@@ -31,7 +31,8 @@ Le but est de représenter chaque entité et association sous forme tabulaire. O
 
 - Jointure = Sous ensemble du produit cartésien. Produit cartésien avec quelque ligne en moins (⋈). La jointure est une sélection de produit cartésien (produit cartésien à condition que tel et tel condition soit rempli)
 - Division = Le résultat affiche les enseignants qui enseigne aux étudiants (÷)
-', '2015-03-21 16:08:18.245000', null, null);
+', '2015-02-12 15:53:00.505000', '', NULL);
+
 INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, next_version) VALUES (2, '# Base de Données - Le modèle relationnel
 
 Ce modèle est différent du précédent : le modèle *entité-association* est super utile pour représenter graphiquement une Base de Données. Mais il est impossible de rentrer ces données dans un logiciel avec le modèle *entité-association*.
@@ -39,7 +40,7 @@ Ce modèle est différent du précédent : le modèle *entité-association* est 
 Le but est de représenter chaque entité et association sous forme tabulaire. On va donc voir comment passer du modèle *entité-association* au modèle *relationnel*, celui qui sera utilisé pour construire notre BDD directement avec notre **SGBD**.
 
 ##Syntaxe générale
-	
+
 **NomEntité**(<u>cléPrimaire</u>, attribut1, attribut2, …) où *attribut2* fait référence à *NomAutreEntité*.
 
 - <u>cléPrimaire</u> est une **clé primaire**.

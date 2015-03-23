@@ -7,7 +7,6 @@
  */
 
 namespace CoursUniv\Entity;
-
 use CoursUniv\Entity\Version;
 
 
