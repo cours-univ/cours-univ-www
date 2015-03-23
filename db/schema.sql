@@ -1,15 +1,3 @@
-<<<<<<< HEAD
--- Course
-
-CREATE TABLE public.course
-(
-    id_course SERIAL PRIMARY KEY NOT NULL,
-    name_course VARCHAR NOT NULL,
-    content_course TEXT NOT NULL
-);
-ALTER TABLE public.course
- ADD CONSTRAINT unique_slug_course UNIQUE (slug_course);
-=======
 -- Version
 
 CREATE TABLE version
@@ -32,4 +20,3 @@ CREATE TABLE course
   FOREIGN KEY (current_version_course) REFERENCES version (id_version)
 );
 CREATE UNIQUE INDEX unique_name_course ON course (name_course);
->>>>>>> f412a9bd9edc16add37bc1cc53f5b1f59aaef15f
