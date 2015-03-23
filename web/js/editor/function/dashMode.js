@@ -1,10 +1,8 @@
 function dashMod(self, actualKey, selection, previousChar){
     setTimeout(function(){
-    var previousChar = (self.value.substring(self.selectionStart - 1, self.selectionStart));
-    var previousChar2 = (self.value.substring(self.selectionStart - 2, self.selectionStart - 1));
-
-    console.log(previousChar)
-    console.log(previousChar2)
+        
+        var previousChar = (self.value.substring(self.selectionStart - 1, self.selectionStart));
+        var previousChar2 = (self.value.substring(self.selectionStart - 2, self.selectionStart - 1));
 
         var nextChar =(self.value.substring(self.selectionStart, self.selectionStart + 1));
         var beforeSelection = self.value.substring(0, self.selectionStart);
@@ -13,7 +11,6 @@ function dashMod(self, actualKey, selection, previousChar){
             dashMode = false;
             self.setSelectionRange(beforeSelection.length - 1, beforeSelection.length - 1 + selection.length);
             deleteChar(self);
-            console.log(dashMode);
             return 0;
         }
 

@@ -30,7 +30,6 @@ function autocomplete(self, actualKey, selection){
         }
         //Que dans le cas d'une selection avec les caractere de var charaterExcept
         for (var i = 0; i < characterExcept.length; i++) {
-            console.log(i);
             if(!evenInsert && (selection.length > 0) && previousChar === characterExcept[i].charac && actualKey == characterExcept[i].keyCodeCharac){
                 insertChar(self, '', selection, characterExcept[i].characOppos);
             }
