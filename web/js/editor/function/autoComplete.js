@@ -1,9 +1,9 @@
-function insertChar(self, charOppos, selection, exeptChar){
+function insertChar(self, charLeft, selection, charRight){
     var beforeSelection = self.value.substring(0, self.selectionStart);
     var afterSelection = self.value.substring(self.selectionEnd);
-    var myString = beforeSelection + (exeptChar || '') + selection + charOppos + afterSelection;
+    var myString = beforeSelection + charLeft + selection + (charRight || '') + afterSelection;
     self.value = myString;
-    self.setSelectionRange((beforeSelection.length + (exeptChar || '').length), (beforeSelection.length + (exeptChar || '').length + selection.length));
+    self.setSelectionRange((beforeSelection.length + charLeft.length), (beforeSelection.length + charLeft.length + selection.length));
 }
 //function which delete char next to the cursor (rigth)
 function deleteChar(self){
@@ -19,13 +19,22 @@ function autocomplete(self, actualKey, selection){
     setTimeout(function(){
         var previousChar = (self.value.substring(self.selectionStart - 1, self.selectionStart));
         var nextChar =(self.value.substring(self.selectionStart, self.selectionStart + 1));
-
+        var evenInsert = false;
+        //Dans tout les cas avec les caractere de var character
         for(var i = 0; i < character.length; i++){
             if(previousChar === character[i].charac && actualKey == character[i].keyCodeCharac){
-                insertChar(self, character[i].characOppos, selection);
+                insertChar(self, '', selection, character[i].characOppos);
+                evenInsert = true;
                 break;
             }
         }
+        //Que dans le cas d'une selection avec les caractere de var charaterExcept
+        for (var i = 0; i < characterExcept.length; i++) {
+            console.log(i);
+            if(!evenInsert && (selection.length > 0) && previousChar === characterExcept[i].charac && actualKey == characterExcept[i].keyCodeCharac){
+                insertChar(self, '', selection, characterExcept[i].characOppos);
+            }
+        };
 
     }, 10);
 }
@@ -33,6 +42,7 @@ function autocomplete(self, actualKey, selection){
 //delete le charatere opposé s'il est collé a son opposé comme : ()
 function deleteAutocomplete(self, actualKey, nextChar, previousChar){
     for(var i = 0; i < character.length; i++){
+        //Supprime de egalement le caractere de droite s'il est l'oppose du caractere de gauche
         if(actualKey === 8 && previousChar === character[i].charac && nextChar === character[i].characOppos){
             deleteChar(self);
             return true;
