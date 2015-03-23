@@ -1,8 +1,7 @@
 function insertChar(self, charLeft, selection, charRight){
     var beforeSelection = self.value.substring(0, self.selectionStart);
     var afterSelection = self.value.substring(self.selectionEnd);
-    var myString = beforeSelection + charLeft + selection + (charRight || '') + afterSelection;
-    self.value = myString;
+    self.value = beforeSelection + charLeft + selection + (charRight || '') + afterSelection;
     self.setSelectionRange((beforeSelection.length + charLeft.length), (beforeSelection.length + charLeft.length + selection.length));
 }
 //function which delete char next to the cursor (rigth)
