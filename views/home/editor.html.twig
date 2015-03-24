@@ -14,9 +14,32 @@
 
 {% block container %}
 
+{# 
+	Pour activer un bouton il suffit d"enlever la classe 'off' et de la remplacer la classe 'on'
+	Bien évidement il faut laisser la classe 'button' 
+#}
 <div id="menu">
-	<div class="button">Autocomplétion</div>
-	<div class="button">Raccourcis</div>
+
+	<div class="button toogle off">
+		<span>Autocomplétion</span>
+		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+		<div class="circle_on_off"></div>
+	</div>
+
+	<div class="button toogle off">
+		<span>Test 1</span>
+		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+		<div class="circle_on_off"></div>
+	</div>
+
+	<div class="button toogle off">
+		<span>Test 2</span>
+		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+		<div class="circle_on_off"></div>
+	</div>
+
+	<div class="button click">Raccourcis</div>
+
 </div>
 
 <form id="composer" method="POST">
@@ -28,14 +51,26 @@
 
 {% block javascripts %}
 
-{{ parent() }}
-
 <script type="text/javascript" src="/js/editor/editor.js"></script>
 <script type="text/javascript" src="/js/editor/function/codeQuote.js"></script>
 <script type="text/javascript" src="/js/editor/function/autoComplete.js"></script>
 <script type="text/javascript" src="/js/editor/function/tabulation.js"></script>
 <script type="text/javascript" src="/js/editor/function/dashMode.js"></script>
 
+<script src="https://cdn.jsdelivr.net/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {inlineMath: [['\\(','\\)']]}
+	});
+</script>
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.js"></script>
+
+<script type="text/javascript" src="/js/editor/menu/style.js"></script>
 
 {% endblock %}
