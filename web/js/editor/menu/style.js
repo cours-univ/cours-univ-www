@@ -2,16 +2,34 @@
 var height = $('#menu .button .circle_on_off').height();
 $('#menu .button .circle_on_off').css({ 'width' : height + 'px' } );
 
+// Au clic sur la fleche
+$('#menu .hide_buton').click(function()
+{
+	// Si le menu est déjà caché
+	if ($('#menu').hasClass("hidden"))
+	{
+		// Afficher le menu
+		$('#menu').removeClass("hidden");
+		// Changer le sens de la fleche
+		$(this).removeClass("down");
+		$(this).addClass("up");
 
-// Translation pour que que le cercle ne sorte pas du bouton lorsque celui-ci est activé
-$("	<style type='text/css'>\
-		#menu .button.on .circle_on_off\
-		{\
-			-webkit-transform: translate(-" + height + "px, 0);\
-			-moz-transform: translate(-" + height + "px, 0);\
-			-ie-transform: translate(-" + height + "px, 0);\
-			-o-transform: translate(-" + height + "px, 0);\
-			transform: translate(-" + height + "px, 0);\
-		}\
-	</style>")
-.appendTo("head");
+		// Redimentionner et replacer l'input et le result
+		$('#input').css({ 'height' : $(window).height() - $('#menu').height() + 'px' });
+		$('#input, #result').css({ 'top' : $('#menu').height() + 'px' });
+	}
+
+	// Si le menu n'est pas chaché
+	else
+	{
+		// Cacher le menu
+		$('#menu').addClass("hidden");
+		// Changer le sens de la fleche
+		$(this).removeClass("up");
+		$(this).addClass("down");
+
+		// Redimentionner et replacer l'input et le result
+		$('#input').css({ 'height' : '100%' });
+		$('#input, #result').css({ 'top' : '0px' });
+	}
+});

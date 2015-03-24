@@ -3,7 +3,8 @@ body
 	background-color: #FBFBFB;
 }
 
-#input {
+#input 
+{
 	width: 45%;
 	height: 100%;
 	position: fixed;
@@ -42,7 +43,8 @@ body
 /* Couleurs */
 
 	/* Très Clair */
-	#menu
+	#menu,
+	#menu .hide_buton
 	{
 		background-color: #FFD012;
 	}
@@ -74,13 +76,17 @@ body
 
 /* Transitions */
 
-#menu .button, #menu .button .circle_on_off
+#menu, 
+#menu .button, 
+#menu .button .circle_on_off,
+#input,
+#result
 {
-	-webkit-transition: all 1s;
-	-moz-transition: all 1s;
-	-ie-transition: all 1s;
-	-o-transition: all 1s;
-	transition: all 1s;
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ie-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
 }
 
 /* Autres */
@@ -94,11 +100,60 @@ body
 	left: 0;
 	width: 100%;
 	box-sizing: border-box;
-
-	/* Borders/Shadows */
-
-	box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.5);
 }
+
+	#menu.hidden
+	{
+		-webkit-transform: translate(0, -100%);
+		-moz-transform: translate(0, -100%);
+		-ie-transform: translate(0, -100%);
+		-o-transform: translate(0, -100%);
+		transform: translate(0, -100%);
+	}
+
+	#menu .hide_buton
+	{
+		position: absolute;
+
+		top: 100%;
+		right: 20px;
+
+		height: 40px;
+		width: 60px;
+
+		border-radius: 0 0 10px 10px;
+
+		cursor: pointer;
+	}
+
+		#menu .hide_buton img
+		{
+			position: relative;
+
+			height: 60%;
+			margin: auto;
+
+			top: 50%;
+			left: 50%;
+		}
+
+			#menu .hide_buton.up img
+			{
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ie-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+
+			#menu .hide_buton.down img
+			{
+				-webkit-transform: scaleY(-1) translate(-50%, 50%);
+				-moz-transform: scaleY(-1) translate(-50%, 50%);
+				-ie-transform: scaleY(-1) translate(-50%, 50%);
+				-o-transform: scaleY(-1) translate(-50%, 50%);
+				transform: scaleY(-1) translate(-50%, 50%);
+			}
 
 	#menu .button
 	{
@@ -142,7 +197,7 @@ body
 
 		#menu .button:hover
 		{
-			box-shadow: 0 0 7px 1px rgba(255, 255, 255, 0.5);
+			box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.8);
 		}
 
 		#menu .button span
@@ -166,6 +221,12 @@ body
 			#menu .button.on .circle_on_off
 			{
 				left: 100%;
+
+				-webkit-transform: translate(-100%, 0);
+				-moz-transform: translate(-100%, 0);
+				-ie-transform: translate(-100%, 0);
+				-o-transform: translate(-100%, 0);
+				transform: translate(-100%, 0);
 			}
 
 /* Z-INDEX */
@@ -178,6 +239,11 @@ body
 #menu .button .circle_on_off
 {
 	z-index: 120;
+}
+
+#menu .hide_buton
+{
+	z-index: 111;
 }
 
 #menu
