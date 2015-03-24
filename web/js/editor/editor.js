@@ -84,8 +84,9 @@ input.onkeydown = function(e){
         addCodeQuote(this, actualKey, e, selection, previousChar);
         dashMod(this, actualKey, selection, previousChar);
     }
-    writeTabulation(this, actualKey, e, shiftKey, selection);
-    unWriteTabulation(this, actualKey, e, shiftKey, previousChar, nextChar, selection);
+    if(!writeTabulation(this, actualKey, e, shiftKey, selection)){
+        unWriteTabulation(this, actualKey, e, shiftKey, previousChar, nextChar, selection);
+    }
 }
 
 function main(){
