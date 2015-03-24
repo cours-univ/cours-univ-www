@@ -37,7 +37,29 @@ body
 	box-sizing: border-box;
 }
 
+/* MENU */
+
+#menu
+{
+	/* Position */
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+
+	/* Colors */
+
+	background-color: #2ecc71;
+}
+
 /* Z-INDEX */
+
+#menu
+{
+	z-index: 110;
+}
 
 #input
 {
