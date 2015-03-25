@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS course;
+DROP TABLE IF EXISTS version;
+
 -- Version
 
 CREATE TABLE version
