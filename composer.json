@@ -16,7 +16,9 @@
         "twig/twig": "~1.18",
         "symfony/twig-bridge": "~2.6",
         "doctrine/dbal": "~2.5",
-        "doctrine/collections": "~1.2"
+        "doctrine/collections": "~1.2",
+        "silex/web-profiler": "~1.0",
+        "sorien/silex-dbal-profiler": "~1.1"
     },
     "autoload": {
         "psr-4": {

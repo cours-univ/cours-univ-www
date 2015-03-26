@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block container %}
+    {% for c in courses %}
+        {{ (c.current.content|length > 700 ? c.current.content|slice(0, 700) ~ '...' : c.current.content)|markdown }}
+        {% if not loop.last %}
+            <hr/>
+        {% endif %}
+    {% else %}
+        <h1>Aucun cours disponible ...</h1>
+    {% endfor %}
+
+    {% if courses.listing|length > 0 %}
+        <ul class="pagination">
+        {% for page, tag in courses.listing %}
+            <li>
+                <a href="{{ path('courses_list', {'page': page}) }}">{{ tag }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

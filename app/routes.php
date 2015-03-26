@@ -22,6 +22,8 @@ la ressource que l'on veut obtenir.
 Silex permet donc de router chaque requete vers une fonction qui va la traiter, en
 fonction de la méthode HTTP et de l'URL demandée. */
 
+/** @var $app \Silex\Application */
+
 
 // Ici, pour chaque requete `GET /` (la page d'accueil) ...
 $app->get('/', function() use($app) {
@@ -38,6 +40,18 @@ $app->get('/', function() use($app) {
     /* J'ai caché pas mal de choses, mais je ne peux pas en dire plus pour le
     moment ... */
 });
+
+$app->get('/courses', function(Request $request) use ($app) {
+    $page = $request->query->get('page', 1);
+    $byPage = $request->query->get('by_page', 5);
+
+    $courses = $app['dao.course']->findByPage($page, $byPage);
+
+    return $app['twig']->render('home/list.html.twig', array(
+        'courses' => $courses
+    ));
+})
+->bind('courses_list');
 
 $app->get('/editor', function() use($app) {
     return $app['twig']->render('home/editor.html.twig', array());
