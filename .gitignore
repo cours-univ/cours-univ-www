@@ -6,3 +6,4 @@
 /app/parameters.*.php
 /app/parameters.dev.php
 /app/parameters.prod.php
+/app/cache/*
