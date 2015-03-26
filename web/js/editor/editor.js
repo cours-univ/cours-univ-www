@@ -102,6 +102,7 @@ raccourcisButton.onclick = function(){
 	}
 }
 
+
 input.onkeydown = function(e){
 
 	main();
