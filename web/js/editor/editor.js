@@ -23,7 +23,7 @@ var characterExcept =[
         charCode : ("'").charCodeAt(0),
         charCodeOppos : ("'").charCodeAt(0) 
     }
-]
+] 
 
 var character = [
     {
