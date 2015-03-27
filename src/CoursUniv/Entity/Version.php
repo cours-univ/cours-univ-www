@@ -19,6 +19,11 @@ class Version
      private $date;
 
     /**
+     * @var Version
+     */
+     private $parent;
+
+    /**
      * @return int
      */
     public function getId()
@@ -71,4 +76,24 @@ class Version
         $this->date = $date;
         return $this;
     }
+
+    /**
+     * @return Version
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param Version $parent
+     * @return Version
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+
 }

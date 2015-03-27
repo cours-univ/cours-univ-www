@@ -27,6 +27,11 @@ class Course {
     private $current;
 
     /**
+     * @var string
+     */
+    private $description;
+
+    /**
      * @return int
      */
     public function getId()
@@ -80,5 +85,22 @@ class Course {
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Course
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
 
 }
