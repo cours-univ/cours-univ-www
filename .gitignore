@@ -6,5 +6,5 @@
 /app/parameters.*.php
 /app/parameters.dev.php
 /app/parameters.prod.php
-/Web/components/
+/web/components/
 /node_modules/
