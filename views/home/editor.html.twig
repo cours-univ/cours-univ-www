@@ -39,13 +39,13 @@
 	<div id="raccourcis" class="button click">Raccourcis</div>
 
 	<div class="hide_buton down">
-		<img src="img/fleche-noire-haut.png">
+		<img src="/img/fleche-noire-haut.png">
 	</div>
 
 </div>
 
 <form id="composer" method="POST">
-    <textarea id="input" type="text" name="markup" ></textarea>
+    <textarea id="input" name="markup" ></textarea>
 </form>
 <div id="result" ></div>
 
@@ -70,14 +70,4 @@
 
     <script type="text/javascript" data-main="js/editor/main" src="{{ asset('/components/require.js/require.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/components/jquery/dist/jquery.min.js') }}"></script>
-
-    <!--
-    <script type="text/javascript" src="{{ asset('/js/editor/editor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/editor/function/codeQuote.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/editor/function/autoComplete.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/editor/function/tabulation.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('/js/editor/function/dashMode.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('/js/editor/menu/style.js') }}"></script>-->
-
 {% endblock %}
