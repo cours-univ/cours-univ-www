@@ -6,8 +6,8 @@ define([
   'character',
   'characterExcept',
   'menu/buttons/autocomplete',
-  'plugin/deleteChar',
-  'plugin/insertChar'
+  'plugins/deleteChar',
+  'plugins/insertChar'
 ], function(app, character, characterExcept, button, deleteChar, insertChar) {
 
   var autoComplete = {};
