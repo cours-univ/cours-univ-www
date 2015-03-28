@@ -1,9 +1,6 @@
 /**
  * Created by palra on 27/03/15.
  */
-/**
- * Created by palra on 27/03/15.
- */
 define(function() {
   var tabulation = document.getElementById("tabulation");
   tabulation.onclick = function(){
