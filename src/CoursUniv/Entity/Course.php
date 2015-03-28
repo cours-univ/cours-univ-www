@@ -27,13 +27,15 @@ class Course {
     private $current;
 
     /**
-     * @var string
-     */
-    private $description;
-
-    /**
      * @return int
      */
+
+    /**
+     * @var Category
+     */
+    private $category;
+
+
     public function getId()
     {
         return $this->id;
@@ -86,21 +88,23 @@ class Course {
     }
 
     /**
-     * @return string
+     * @return Category
      */
-    public function getDescription()
+    public function getCategory()
     {
-        return $this->description;
+        return $this->category;
     }
 
     /**
-     * @param string $description
-     * @return Course
+     * @param Category $category
+     * @return Category
      */
-    public function setDescription($description)
+    public function setCategory($category)
     {
-        $this->description = $description;
+        $this->category = $category;
         return $this;
     }
+
+
 
 }
