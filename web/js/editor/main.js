@@ -13,6 +13,7 @@ require([
   'plugins/dashMode',
   'plugins/codeQuote',
   'plugins/tabulation',
+  'plugins/wordCounter',
   'menu/main'
 ], function(app, compiler) {
   compiler.handle();

@@ -8,9 +8,7 @@ define(function() {
             characOppos : ')',
             keyCodeCharac : 53,
             keyCodeCharacOppos : 219,
-            keyCodeCharacOppos2 : 169,
-            charCode : ('(').charCodeAt(0),
-            charCodeOppos : (')').charCodeAt(0)
+            keyCodeCharacOppos2 : 169
 
         },
         {
@@ -18,25 +16,19 @@ define(function() {
             characOppos : '}',
             keyCodeCharac : 52,
             keyCodeCharacOppos : 187,
-            keyCodeCharacOppos2 : 61,
-            charCode : ('{').charCodeAt(0),
-            charCodeOppos : ('}').charCodeAt(0)
+            keyCodeCharacOppos2 : 61
         },
         {
             charac : '[',
             characOppos : ']',
             keyCodeCharac : 53,
-            keyCodeCharacOppos : 219,
-            charCode : ('[').charCodeAt(0),
-            charCodeOppos : (']').charCodeAt(0)
+            keyCodeCharacOppos : 219
         },
         {
             charac : '"',
             characOppos : '"',
             keyCodeCharac : 51,
-            keyCodeCharacOppos : 51,
-            charCode : ('"').charCodeAt(0),
-            charCodeOppos : ('"').charCodeAt(0)
+            keyCodeCharacOppos : 51
         }
     ];
 })
