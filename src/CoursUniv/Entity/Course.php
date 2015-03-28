@@ -29,6 +29,13 @@ class Course {
     /**
      * @return int
      */
+
+    /**
+     * @var Category
+     */
+    private $category;
+
+
     public function getId()
     {
         return $this->id;
@@ -79,6 +86,25 @@ class Course {
         $this->current = $current;
         return $this;
     }
+
+    /**
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param Category $category
+     * @return Category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
 
 
 }
