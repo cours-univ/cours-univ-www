@@ -10,6 +10,7 @@ CREATE TABLE version
   datetime_version TIMESTAMP NOT NULL,
   comment_version VARCHAR,
   parent_version INT,
+  author VARCHAR,
   FOREIGN KEY (parent_version) REFERENCES version (id_version)
 
 );

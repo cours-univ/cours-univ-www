@@ -101,4 +101,5 @@ class CourseDAO {
 
         return $articles;
     }
+
 }

@@ -1,5 +1,5 @@
 
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (1, '# Base de Données - Le modèle relationnel
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (1, '# Base de Données - Le modèle relationnel
 
 Ce modèle est différent du précédent : le modèle *entité-association* est super utile pour représenter graphiquement une Base de Données. Mais il est impossible de rentrer ces données dans un logiciel avec le modèle *entité-association*.
 
@@ -32,56 +32,56 @@ Le but est de représenter chaque entité et association sous forme tabulaire. O
 
 - Jointure = Sous ensemble du produit cartésien. Produit cartésien avec quelque ligne en moins (⋈). La jointure est une sélection de produit cartésien (produit cartésien à condition que tel et tel condition soit rempli)
 - Division = Le résultat affiche les enseignants qui enseigne aux étudiants (÷)
-', '2015-02-12 15:53:00.505000', '', NULL);
+', '2015-02-12 15:53:00.505000', '', NULL, 'drattak');
 
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (2, 'Lorem ipsum 2', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (3, 'Lorem ipsum 3', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (4, 'Lorem ipsum 4', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (5, 'Lorem ipsum 5', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (6, 'Lorem ipsum 6', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (7, 'Lorem ipsum 7', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (8, 'Lorem ipsum 8', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (9, 'Lorem ipsum 9', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (10, 'Lorem ipsum 10', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (11, 'Lorem ipsum 11', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (12, 'Lorem ipsum 12', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (13, 'Lorem ipsum 13', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (14, 'Lorem ipsum 14', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (15, 'Lorem ipsum 15', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (16, 'Lorem ipsum 16', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (17, 'Lorem ipsum 17', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (18, 'Lorem ipsum 18', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (19, 'Lorem ipsum 19', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (20, 'Lorem ipsum 20', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (21, 'Lorem ipsum 21', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (22, 'Lorem ipsum 22', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (23, 'Lorem ipsum 23', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (24, 'Lorem ipsum 24', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (25, 'Lorem ipsum 25', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (26, 'Lorem ipsum 26', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (27, 'Lorem ipsum 27', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (28, 'Lorem ipsum 28', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (29, 'Lorem ipsum 29', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (30, 'Lorem ipsum 30', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (31, 'Lorem ipsum 31', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (32, 'Lorem ipsum 32', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (33, 'Lorem ipsum 33', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (34, 'Lorem ipsum 34', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (35, 'Lorem ipsum 35', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (36, 'Lorem ipsum 36', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (37, 'Lorem ipsum 37', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (38, 'Lorem ipsum 38', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (39, 'Lorem ipsum 39', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (40, 'Lorem ipsum 40', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (41, 'Lorem ipsum 41', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (42, 'Lorem ipsum 42', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (43, 'Lorem ipsum 43', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (44, 'Lorem ipsum 44', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (45, 'Lorem ipsum 45', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (46, 'Lorem ipsum 46', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (47, 'Lorem ipsum 47', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (48, 'Lorem ipsum 48', '2015-03-13 16:36:00.505000', '', NULL);
-INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, parent_version) VALUES (49, 'Lorem ipsum 49', '2015-03-13 16:36:00.505000', '', NULL);
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (2, 'Lorem ipsum 2', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (3, 'Lorem ipsum 3', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (4, 'Lorem ipsum 4', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (5, 'Lorem ipsum 5', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (6, 'Lorem ipsum 6', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (7, 'Lorem ipsum 7', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (8, 'Lorem ipsum 8', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (9, 'Lorem ipsum 9', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (10, 'Lorem ipsum 10', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (11, 'Lorem ipsum 11', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (12, 'Lorem ipsum 12', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (13, 'Lorem ipsum 13', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (14, 'Lorem ipsum 14', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (15, 'Lorem ipsum 15', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (16, 'Lorem ipsum 16', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (17, 'Lorem ipsum 17', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (18, 'Lorem ipsum 18', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (19, 'Lorem ipsum 19', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (20, 'Lorem ipsum 20', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (21, 'Lorem ipsum 21', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (22, 'Lorem ipsum 22', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (23, 'Lorem ipsum 23', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (24, 'Lorem ipsum 24', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (25, 'Lorem ipsum 25', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (26, 'Lorem ipsum 26', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (27, 'Lorem ipsum 27', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (28, 'Lorem ipsum 28', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (29, 'Lorem ipsum 29', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (30, 'Lorem ipsum 30', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (31, 'Lorem ipsum 31', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (32, 'Lorem ipsum 32', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (33, 'Lorem ipsum 33', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (34, 'Lorem ipsum 34', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (35, 'Lorem ipsum 35', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (36, 'Lorem ipsum 36', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (37, 'Lorem ipsum 37', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (38, 'Lorem ipsum 38', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (39, 'Lorem ipsum 39', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (40, 'Lorem ipsum 40', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (41, 'Lorem ipsum 41', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (42, 'Lorem ipsum 42', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (43, 'Lorem ipsum 43', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (44, 'Lorem ipsum 44', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (45, 'Lorem ipsum 45', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (46, 'Lorem ipsum 46', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (47, 'Lorem ipsum 47', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (48, 'Lorem ipsum 48', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
+INSERT INTO public.version (id_version, content_version, datetime_version, comment_version, previous_version, author) VALUES (49, 'Lorem ipsum 49', '2015-03-13 16:36:00.505000', '', NULL, 'drattak');
 
 
 INSERT INTO public.course (id_course, name_course, current_version_course, description) VALUES (1, 'Le modèle relationnel', 1, 'modèle relationnel');
