@@ -81,7 +81,6 @@ define([
         selection = before + after;
       }
     }
-    console.log('ok ok');
     return selection;
   };
 

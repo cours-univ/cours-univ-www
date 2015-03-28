@@ -6,9 +6,10 @@
  */
 define([
   'app',
-  'plugins/autoComplete',
+  'plugins/insertChar',
+  'plugins/deleteChar',
   'menu/buttons/autocomplete'
-], function(app, autoComplete, button) {
+], function(app, insertChar, deleteChar, button) {
 
   var codeQuote = {};
 
@@ -43,7 +44,7 @@ define([
     else if(actualKey === 67 && altKey && !ctrlKey && previousChar !== '`'){
       e.preventDefault();
 
-      autoComplete.insertChar(self, '`', selection, '`');
+      insertChar.insertBoth(self, '`', selection, '`');
     }
   };
 
@@ -59,9 +60,7 @@ define([
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
 
-    if(button.active && !autoComplete.deleteAutoComplete(this, actualKey, nextChar, previousChar)){
-     codeQuote.addCodeQuote(this, actualKey, e, selection, previousChar);
-    }
+    codeQuote.addCodeQuote(this, actualKey, e, selection, previousChar);
   });
 
   return codeQuote;
