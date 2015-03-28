@@ -9,9 +9,9 @@ CREATE TABLE version
   content_version VARCHAR NOT NULL,
   datetime_version TIMESTAMP NOT NULL,
   comment_version VARCHAR,
-  parent_version INT,
+  previous_version INT,
   author VARCHAR,
-  FOREIGN KEY (parent_version) REFERENCES version (id_version)
+  FOREIGN KEY (previous_version) REFERENCES version (id_version)
 
 );
 
@@ -23,6 +23,7 @@ CREATE TABLE course
   name_course VARCHAR NOT NULL,
   current_version_course INT NOT NULL,
   description VARCHAR NOT NULL,
+  category VARCHAR NOT NULL,
   FOREIGN KEY (current_version_course) REFERENCES version (id_version)
 );
 CREATE UNIQUE INDEX unique_name_course ON course (name_course);
