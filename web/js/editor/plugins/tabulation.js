@@ -2,11 +2,61 @@
  * Created by palra on 27/03/15.
  */
 define([
-  'app'
-], function(app) {
+  'input'
+], function (input) {
   var tabulation = {};
 
-  //Gere la tabulation
+  /**
+   * Private methods
+   */
+
+  function _deleteFirstFindTabOnLine(selection) {
+    if (selection.length > 0) {
+      for (var i = 0; i < selection.length; i++) {
+        if (selection.charAt(i) === String.fromCharCode(10) || selection.charAt(i) === String.fromCharCode(13)) {
+          var before = selection.substring(0, i + 1), after;
+          if (selection.charAt(i + 1) === String.fromCharCode(9)) {
+            after = selection.substring(i + 2);
+            selection = before + after;
+          }
+          if (selection.charAt(i + 1) === ' ' && selection.charAt(i + 2) === ' ' && selection.charAt(i + 3) === ' ' && selection.charAt(i + 4) === ' ') {
+            after = selection.substring(i + 5);
+            selection = before + after;
+          }
+        }
+      }
+    }
+    return selection;
+  }
+
+  function _deleteTabLastIndex(selection) {
+    if (selection.length > 0) {
+      var lastIndex = selection.lastIndexOf("\n");
+      var before = selection.substring(0, lastIndex + 1), after;
+
+      if (selection.charAt(lastIndex + 1) === "\t") {
+        after = selection.substring(lastIndex + 2);
+        selection = before + after;
+      }
+      else if (
+        selection.charAt(lastIndex + 1) === ' ' &&
+        selection.charAt(lastIndex + 2) === ' ' &&
+        selection.charAt(lastIndex + 3) === ' ' &&
+        selection.charAt(lastIndex + 4) === ' '
+      ) {
+        before = selection.substring(0, lastIndex + 1);
+        after = selection.substring(lastIndex + 5);
+        selection = before + after;
+      }
+    }
+    return selection;
+  }
+
+
+  /**
+   * Public methods
+   */
+
   tabulation.writeTabulation = function (self, actualKey, e, shiftKey, selection){
     if (actualKey == 9 && !shiftKey){
       e.preventDefault();
@@ -46,45 +96,7 @@ define([
     }
   };
 
-  tabulation.deleteFirstFindTabOnLine = function (selection){
-    if(selection.length > 0){
-      for(var i = 0; i < selection.length; i++){
-        if(selection.charAt(i) === String.fromCharCode(10) || selection.charAt(i) === String.fromCharCode(13)){
-          if(selection.charAt(i+1) === String.fromCharCode(9)){
-            var before = selection.substring(0, i+1);
-            var after = selection.substring(i+2);
-            selection = before + after;
-          }
-          if(selection.charAt(i+1) === ' ' && selection.charAt(i+2) === ' ' && selection.charAt(i+3) === ' ' && selection.charAt(i+4) === ' '){
-            var before = selection.substring(0, i+1);
-            var after = selection.substring(i+5);
-            selection = before + after;
-          }
-        }
-      }
-    }
-    return selection;
-  };
 
-  tabulation.deleteTabLastIndex = function (selection){
-    if(selection.length > 0){
-      var lastIndex = selection.lastIndexOf(String.fromCharCode(10));
-
-      if(selection.charAt(lastIndex + 1) === String.fromCharCode(9)){
-        var before = selection.substring(0, lastIndex + 1);
-        var after = selection.substring(lastIndex + 2);
-        selection = before + after;
-      }
-      else if(selection.charAt(lastIndex + 1) === ' ' && selection.charAt(lastIndex + 2) === ' ' && selection.charAt(lastIndex + 3) === ' ' && selection.charAt(lastIndex + 4) === ' ' ){
-        var before = selection.substring(0, lastIndex + 1);
-        var after = selection.substring(lastIndex + 5);
-        selection = before + after;
-      }
-    }
-    return selection;
-  };
-
-  //Gere le shift + tabulation
   tabulation.unWriteTabulation = function (self, actualKey, e, shiftKey, previousChar, nextChar, selection) {
     if(actualKey == 9 && shiftKey){
       e.preventDefault();
@@ -93,7 +105,7 @@ define([
         var beforeSelection = self.value.substring(0, self.selectionStart-1);
         var afterSelection = self.value.substring(self.selectionEnd);
 
-        selection = tabulation.deleteFirstFindTabOnLine(selection);
+        selection = _deleteFirstFindTabOnLine(selection);
 
         self.value = beforeSelection + selection + afterSelection;
         self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
@@ -104,7 +116,7 @@ define([
       else if(nextChar === String.fromCharCode(9)){
         var beforeSelection = self.value.substring(0, self.selectionStart);
 
-        selection = tabulation.deleteFirstFindTabOnLine(selection);
+        selection = _deleteFirstFindTabOnLine(selection);
 
         var afterSelection = self.value.substring(self.selectionEnd+1);
         self.value = beforeSelection + selection + afterSelection;
@@ -114,8 +126,8 @@ define([
       else if(selection.length > 0){
         var beforeSelection = self.value.substring(0, self.selectionStart);
         var afterSelection = self.value.substring(self.selectionEnd);
-        beforeSelection = tabulation.deleteTabLastIndex(beforeSelection);
-        selection = tabulation.deleteFirstFindTabOnLine(selection);
+        beforeSelection = _deleteTabLastIndex(beforeSelection);
+        selection = _deleteFirstFindTabOnLine(selection);
 
         self.value = beforeSelection + selection + afterSelection;
         self.setSelectionRange(beforeSelection.length, beforeSelection.length + selection.length);
@@ -125,7 +137,7 @@ define([
   };
 
 
-  app.input.addEventListener('keydown', function(e) {
+  input.addEventListener('keydown', function (e) {
     var actualKey = (e || window.event).which; //code clavier de la touche appuyé
     var shiftKey = (e || window.event).shiftKey; //booleen : true si shift appuyé
 
