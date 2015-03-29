@@ -3,7 +3,10 @@
  */
 
 requirejs.config({
-    baseUrl: 'js/editor'
+  baseUrl: 'js/editor',
+  paths: {
+    text: '/components/requirejs-text/text.js'
+  }
 });
 
 require([

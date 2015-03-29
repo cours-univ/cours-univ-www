@@ -1,6 +1,6 @@
 define([
-  'raccourcis'
-],function( raccourcis) {
+  'text!raccourcis'
+],function(raccourcis) {
   var input = document.getElementById('input');
 
   if(localStorage.getItem("input") !== "" || localStorage.getItem("input") !== null){

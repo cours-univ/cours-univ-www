@@ -5,6 +5,7 @@
     "highlightjs": "8.4",
     "MathJax": "2.5.1",
     "normalize.css": "3.0.2",
-    "require.js": "jrburke/requirejs#2.1.16"
+    "require.js": "jrburke/requirejs#2.1.16",
+    "requirejs-text": "2.0.14"
   }
 }
