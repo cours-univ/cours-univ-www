@@ -43,35 +43,35 @@ body
 /* Couleurs */
 
 	/* Très Clair */
-	#menu,
-	#menu .hide_buton
+	#menu, /* Fond du menu */
+	#menu .hide_buton /* Bouton pour afficher/cacher le menu */
 	{
-		background-color: #FFD012;
+		background-color: #5EB3EC;
 	}
 
 	/* Clair */
-	#menu .button, 
-	#menu .button.off
+	#menu .button, /* Bouttons "click" */
+	#menu .button.off /* Bouttons "toggle" éteinds */
 	{
-		background-color: #f39c12;
+		background-color: #3498db;
 	}
 
 	/* Normal */
-	#menu .button.off .circle_on_off
+	#menu .button.off .circle_on_off /* Cercle des bouttons éteinds */
 	{
-		background-color: #DD9118;
+		background-color: #2980b9;
 	}
 
 	/* Foncé */
-	#menu .button.on
+	#menu .button.on /* Bouttons "toggle" allumés */
 	{
-		background-color: #C87F0B;
+		background-color: #2980b9;
 	}
 
 	/* Très foncé */
-	#menu .button.on .circle_on_off
+	#menu .button.on .circle_on_off /* Cercle des bouttons allumés */
 	{
-		background-color: #A96C0B;
+		background-color: #296D99;
 	}
 
 /* Transitions */
