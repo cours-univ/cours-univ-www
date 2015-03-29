@@ -3,7 +3,7 @@
  */
 define([
   'input',
-  'text!raccourcis',
+  'text!raccourcis.md',
   'plugins/compiler',
   'jquery'
 ], function(input, raccourcis, compiler, $) {

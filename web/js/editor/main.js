@@ -5,7 +5,7 @@
 requirejs.config({
   baseUrl: 'js/editor',
   paths: {
-    text: '/components/requirejs-text/text.js'
+    text: '/components/requirejs-text/text'
   }
 });
 
