@@ -91,17 +91,17 @@ tabulation.onclick = function(){
 }
 raccourcisButton = document.getElementById("raccourcis");
 raccourcisButton.onclick = function(){
-	if(input.value != "" && input.value != raccourcis){
-		if(confirm("Attention, cela va remplacer le texte présent dans l'éditeur, continuer?")){
-			input.value = raccourcis;
-			main();
-		}
-	}
-	else{
-		input.value = raccourcis;
-	}
+	// if(input.value != "" && input.value != raccourcis){
+	// 	if(confirm("Attention, cela va remplacer le texte présent dans l'éditeur, continuer?")){
+	// 		input.value = raccourcis;
+	// 		main();
+	// 	}
+	// }
+	// else{
+	// 	input.value = raccourcis;
+	// }
+    $("#shortcuts").removeClass("hidden");
 }
-
 
 input.onkeydown = function(e){
 
@@ -172,6 +172,11 @@ window.onload = function(){
         input.value = raccourcis;
     }
     appelAjax();
+
+    $("#shortcuts .title .close").click(function()
+    {
+        $("#shortcuts").addClass("hidden");
+    });
 }
 
 raccourcis ="# Bienvenue dans l'éditeur de Markdown" + 
