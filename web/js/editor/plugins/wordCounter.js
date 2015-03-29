@@ -3,21 +3,20 @@
  */
 
 define([
-	'app'
-], function(app){
-
+	'input'
+], function(input){
 	var wordCounter = {};
 
 	wordCounter.count = function(){
-		var chaine = app.input.value;
+		var chaine = input.value;
 		console.log(chaine);
 	    var regex = new RegExp("[a-zA-Z0-9éèêëàáâäóòôöíìîïçÉÈÊËÀÁÂÄÒÓÔÖÌÍÎÏÇ-]+","g");
-	    array = chaine.split(regex);
+	    var array = chaine.split(regex);
 	    nb = array.length - 1;
 	    return nb;
 	};
 
-	app.input.addEventListener('keydown', function(){
+	input.addEventListener('keydown', function(){
 		console.log("Nombre de mot(s) : " + wordCounter.count());
 	}) 
-})
+});
