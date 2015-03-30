@@ -1,0 +1,155 @@
+/* Transitions */
+
+#menu, 
+#menu .button, 
+#menu .button .circle_on_off,
+#input,
+#result,
+.window .title .close
+{
+	-webkit-transition: all 0.6s;
+	-moz-transition: all 0.6s;
+	-ie-transition: all 0.6s;
+	-o-transition: all 0.6s;
+	transition: all 0.6s;
+}
+
+/* Autres */
+
+#menu
+{
+	/* Position/Size */
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+	#menu.hidden
+	{
+		-webkit-transform: translate(0, -100%);
+		-moz-transform: translate(0, -100%);
+		-ie-transform: translate(0, -100%);
+		-o-transform: translate(0, -100%);
+		transform: translate(0, -100%);
+	}
+
+	#menu .hide_buton
+	{
+		position: absolute;
+
+		top: 100%;
+		right: 20px;
+
+		height: 40px;
+		width: 60px;
+
+		border-radius: 0 0 10px 10px;
+
+		cursor: pointer;
+	}
+
+		#menu .hide_buton img
+		{
+			position: relative;
+
+			height: 60%;
+			margin: auto;
+
+			top: 50%;
+			left: 50%;
+		}
+
+			#menu .hide_buton.up img
+			{
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ie-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+			}
+
+			#menu .hide_buton.down img
+			{
+				-webkit-transform: scaleY(-1) translate(-50%, 50%);
+				-moz-transform: scaleY(-1) translate(-50%, 50%);
+				-ie-transform: scaleY(-1) translate(-50%, 50%);
+				-o-transform: scaleY(-1) translate(-50%, 50%);
+				transform: scaleY(-1) translate(-50%, 50%);
+			}
+
+	#menu .button
+	{
+		/* Position/Size */
+
+		position: relative;
+		float: left;
+
+		padding: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+
+		margin: 10px;
+		margin-right: 0;
+
+		box-sizing: border-box;
+
+		/* Borders/Shadows */
+
+		box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.1);
+		border-radius: 25px;
+
+		/* Colors */
+		
+		color: #333;
+
+		/* Other */
+
+		cursor: pointer;
+	}
+
+		#menu .button.off
+		{
+			color: #333;
+		}
+
+		#menu .button.on
+		{
+			color: #EEE;
+		}
+
+		#menu .button:hover
+		{
+			box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.8);
+		}
+
+		#menu .button span
+		{
+			position: relative;
+		}
+
+		#menu .button .circle_on_off
+		{
+			position: absolute;
+			top: 0;
+			height: 100%;
+			border-radius: 50%;
+		}
+
+			#menu .button.off .circle_on_off
+			{
+				left: 0;
+			}
+
+			#menu .button.on .circle_on_off
+			{
+				left: 100%;
+
+				-webkit-transform: translate(-100%, 0);
+				-moz-transform: translate(-100%, 0);
+				-ie-transform: translate(-100%, 0);
+				-o-transform: translate(-100%, 0);
+				transform: translate(-100%, 0);
+			}

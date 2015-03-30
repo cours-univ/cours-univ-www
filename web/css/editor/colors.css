@@ -1,0 +1,33 @@
+/* Très Clair */
+#menu, /* Fond du menu */
+#menu .hide_buton, /* Bouton pour afficher/cacher le menu */
+.window .title /* Titres des fenetres */
+{
+	background-color: #5EB3EC;
+}
+
+/* Clair */
+#menu .button, /* Bouttons "click" */
+#menu .button.off, /* Bouttons "toggle" éteinds */
+.window .title .close
+{
+	background-color: #3498db;
+}
+
+/* Normal */
+#menu .button.off .circle_on_off /* Cercle des bouttons éteinds */
+{
+	background-color: #2980b9;
+}
+
+/* Foncé */
+#menu .button.on /* Bouttons "toggle" allumés */
+{
+	background-color: #2980b9;
+}
+
+/* Très foncé */
+#menu .button.on .circle_on_off /* Cercle des bouttons allumés */
+{
+	background-color: #296D99;
+}

@@ -1,0 +1,34 @@
+#shortcuts
+{
+	z-index: 140;
+}
+
+#menu .button span
+{
+	z-index: 130;
+}
+
+#menu .button .circle_on_off
+{
+	z-index: 120;
+}
+
+#menu .hide_buton
+{
+	z-index: 111;
+}
+
+#menu
+{
+	z-index: 110;
+}
+
+#input
+{
+	z-index: 100;
+}
+
+#result
+{
+	z-index: 90;
+}
