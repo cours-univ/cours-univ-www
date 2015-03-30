@@ -22,7 +22,7 @@ define([
       $(this).addClass("up");
 
       // Redimentionner et replacer l'input et le result
-      $('#input').css({ 'height' : $(window).height() - $('#menu').height() + 'px' });
+      $('#input, #result').css({ 'height' : $(window).height() - $('#menu').height() + 'px' });
       $('#input, #result').css({ 'top' : $('#menu').height() + 'px' });
     }
 
@@ -36,7 +36,7 @@ define([
       $(this).addClass("down");
 
       // Redimentionner et replacer l'input et le result
-      $('#input').css({ 'height' : '100%' });
+      $('#input, #result').css({ 'height' : '100%' });
       $('#input, #result').css({ 'top' : '0px' });
     }
   });
