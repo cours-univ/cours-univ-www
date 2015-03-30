@@ -7,10 +7,13 @@ define(function() {
     if(this.classList.contains("off")){
       this.classList.remove("off");
       this.classList.add("on");
+      this.innerHTML = "Tabulation : Spaces";
+
     }
     else{
       this.classList.remove("on");
       this.classList.add("off");
+      this.innerHTML = "Tabulation : Tab";
     }
   };
 
