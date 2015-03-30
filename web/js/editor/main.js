@@ -18,14 +18,8 @@ require([
   'plugins/codeQuote',
   'plugins/tabulation',
   'plugins/wordCounter',
+  'plugins/splashScreen',
   'menu/main'
 ], function(app, compiler, $) {
   compiler.handle();
-
-  $(function(){ // Dès que la page est chargée
-    setTimeout(function() // On attend deux secondes pour être sûr que le perser markdown à fini
-    {
-      $("#splashscreen").hide(); // On cache le splashscreen
-    }, 2000);
-  });
 });
