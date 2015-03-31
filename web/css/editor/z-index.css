@@ -8,6 +8,12 @@
 	z-index: 140;
 }
 
+#menu .dropdown .content,
+#menu .dropdown .content > div
+{
+	z-index: 135;
+}
+
 #menu .button span
 {
 	z-index: 130;
@@ -16,6 +22,11 @@
 #menu .button .circle_on_off
 {
 	z-index: 120;
+}
+
+#menu > .button
+{
+	z-index: 112;
 }
 
 #menu .hide_buton

@@ -1,6 +1,7 @@
 /* Très Clair */
 #menu, /* Fond du menu */
-#menu .hide_buton /* Bouton pour afficher/cacher le menu */
+#menu .hide_buton, /* Bouton pour afficher/cacher le menu */
+#menu .dropdown .content
 {
 	background-color: #5EB3EC;
 }
@@ -21,7 +22,8 @@
 }
 
 /* Foncé */
-#menu .button.on /* Boutons "toggle" allumés */
+#menu .button.on, /* Boutons "toggle" allumés */
+#menu .dropdown.open > .button
 {
 	background-color: #2980b9;
 }

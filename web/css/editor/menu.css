@@ -5,7 +5,8 @@
 #menu .button .circle_on_off,
 #input,
 #result,
-.window .title .close
+.window .title .close,
+#menu .dropdown .content
 {
 	-webkit-transition: all 0.6s;
 	-moz-transition: all 0.6s;
@@ -152,4 +153,40 @@
 				-ie-transform: translate(-100%, 0);
 				-o-transform: translate(-100%, 0);
 				transform: translate(-100%, 0);
+			}
+
+	#menu .dropdown
+	{
+		position: relative;
+		float: left;
+		height: 100%;
+	}
+
+		#menu .dropdown .content
+		{
+			position: absolute;
+			top: 100%;
+			left: 0%;
+			padding: 10px;
+			border-radius: 0 0 20px 20px;
+
+			-webkit-transform: translate(0, -200%);
+			-moz-transform: translate(0, -200%);
+			-ie-transform: translate(0, -200%);
+			-o-transform: translate(0, -200%);
+			transform: translate(0, -200%);
+		}
+
+		#menu .dropdown.open .content
+		{
+			-webkit-transform: translate(0, 0);
+			-moz-transform: translate(0, 0);
+			-ie-transform: translate(0, 0);
+			-o-transform: translate(0, 0);
+			transform: translate(0, 0);
+		}
+
+			#menu .dropdown .content .button
+			{
+				margin: 10px;
 			}

@@ -26,16 +26,33 @@
 #}
 <div id="menu" class="hidden">
 
-	<div id="autocomplete" class="button toggle off">
-		<span>Autocomplétion</span>
-		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
-		<div class="circle_on_off"></div>
-	</div>
-
 	<div id="tabulation" class="button toggle off">
 		<span>Tabulation : Tab</span>
 		{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
 		<div class="circle_on_off"></div>
+	</div>
+
+	<div class="dropdown">
+
+		<div class="button click">Dropdown</div>
+
+		<div class="content">
+
+			<div id="autocomplete" class="button toggle off">
+				<span>Autocomplétion</span>
+				{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+				<div class="circle_on_off"></div>
+			</div>
+
+			<div class="button toggle off">
+				<span>Autre bouton</span>
+				{# Cercle qui se déplasse en fonction de si le bouton est on ou off #}
+				<div class="circle_on_off"></div>
+			</div>
+
+			<div class="button click">Autre bouton</div>
+
+		</div>
 	</div>
 
 	<div id="raccourcis" class="button click">Raccourcis</div>

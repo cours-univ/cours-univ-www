@@ -6,12 +6,15 @@ define([
   'loadMarkdown'
 ], function($) {
   // Regler la largeur des circle_on_off pour qu'ils soient carrés (rond avec les angles arrondis)
-  var height = $('#menu .button .circle_on_off').height();
+  var height = $('#menu > .button .circle_on_off').height();
   $('#menu .button .circle_on_off').css({ 'width' : height + 'px' } );
 
 // Au clic sur la fleche
   $('#menu .hide_buton').click(function()
   {
+    // On cache toutes les dropdown
+    $("#menu .dropdown").removeClass("open");
+
     // Si le menu est déjà caché
     if ($('#menu').hasClass("hidden"))
     {
@@ -39,5 +42,16 @@ define([
       $('#input, #result').css({ 'height' : '100%' });
       $('#input, #result').css({ 'top' : '0px' });
     }
+  });
+
+  // Au clic sur un dropdown
+  $("#menu .dropdown").mouseover(function()
+  {
+    $(this).addClass("open");
+  });
+
+  $("#menu .dropdown").mouseleave(function()
+  {
+    $(this).removeClass("open");
   });
 })
