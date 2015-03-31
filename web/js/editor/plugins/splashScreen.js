@@ -1,3 +1,8 @@
+/**
+ * Created by Skeggib on 30/03/15
+ */
+
+
 define([
 	'jquery'
 ], function($){
