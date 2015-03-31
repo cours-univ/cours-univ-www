@@ -29,11 +29,11 @@ define([
         return 0;
       }
 
-      console.log(actualKey);
+      //console.log(actualKey);
       var beforeSelection2 = self.value.substring(0, self.selectionStart-1);
       if(actualKey === 13 && beforeSelection2.substring(beforeSelection2.lastIndexOf("\n") + 1, beforeSelection2.lastIndexOf("\n") + 4) === ' - '){
 
-      console.log(actualKey);
+      //console.log(actualKey);
         insertChar.insertBoth(self, ' - ', selection, '');
       }
 
@@ -55,7 +55,7 @@ define([
     //tout les caracteres selectionnés
 
     var selection = this.value.substring(this.selectionStart, this.selectionEnd);
-    console.log('DashFunction');
+    //console.log('DashFunction');
     //caractere avant et apres le curseur
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));

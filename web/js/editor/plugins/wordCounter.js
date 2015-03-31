@@ -17,6 +17,6 @@ define([
 	};
 
 	input.addEventListener('keydown', function(){
-		console.log("Nombre de mot(s) : " + wordCounter.count());
+		//console.log("Nombre de mot(s) : " + wordCounter.count());
 	}) 
 });

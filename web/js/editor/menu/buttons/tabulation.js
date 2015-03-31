@@ -3,62 +3,47 @@
  */
 define([
   'app'
-],function(app, tabChange) {
+],function(app) {
 
-  var changeTab = function(){
+	tabulation.onclick = function(){
+		if(this.classList.contains("off")){
+			this.classList.remove("off");
+			this.classList.add("on");
+			document.querySelector("#tabulation span").innerHTML = "Tabulation : Spaces";
 
-    console.log('tabchange');
-    // if(tabulation.active === true){
-    //   while(app.input.value.indexOf('    ')){
-    //     app.input.value = app.input.value.replace('    ', '\t');
-    //   }
-    }
-    else{
-      // while(app.input.value.indexOf('\t')){
-      //   app.input.value = app.input.value.replace('\t', '    ');
-      // }
-    }
-  }
+			this.active = false;
 
-  var tabulation = document.getElementById("tabulation");
-  tabulation.onclick = function(){
-    if(this.classList.contains("off")){
-      this.classList.remove("off");
-      this.classList.add("on");
-      document.querySelector("#tabulation span").innerHTML = "Tabulation : Spaces";
+			localStorage.setItem("settings.tabulation", "false");
 
-      this.active = false;
+			app.input.value = app.input.value.split('\t').join('    ');
+		}
+		else{
+			this.classList.remove("on");
+			this.classList.add("off");
+			document.querySelector("#tabulation span").innerHTML = "Tabulation : Tab";
 
-      localStorage.setItem("settings.tabulation", "false");
+			this.active = true;
 
-      changeTab();
-    }
-    else{
-      this.classList.remove("on");
-      this.classList.add("off");
-      document.querySelector("#tabulation span").innerHTML = "Tabulation : Tab";
+			localStorage.setItem("settings.tabulation", "true");
 
-      this.active = true;
-
-      localStorage.setItem("settings.tabulation", "true");
-
-      changeTab();
-    }
-  };
+			app.input.value = app.input.value.split('    ').join('\t');
+		}
+	};
 
 
-  if(localStorage.getItem("settings.tabulation") == "false"){
-    tabulation.classList.remove("off");
-    tabulation.classList.add("on");
-    tabulation.active = true;
+	if(localStorage.getItem("settings.tabulation") == "false"){
+		tabulation.classList.remove("off");
+		tabulation.classList.add("on");
+		tabulation.active = true;
 
-    document.querySelector("#tabulation span").innerHTML = "Tabulation : Spaces";
+		document.querySelector("#tabulation span").innerHTML = "Tabulation : Spaces";
+		
+		app.input.value = app.input.value.split('\t').join('    ');
+	}
+	else{
+		tabulation.active = false;
+		app.input.value = app.input.value.split('    ').join('\t');
+	}
 
-    changeTab();
-  }
-
-
-  console.log(tabulation);
-
-  return tabulation;
+	return tabulation;
 });

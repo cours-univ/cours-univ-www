@@ -2,8 +2,9 @@
  * Created by palra on 27/03/15.
  */
 define([
-  'input'
-], function (input) {
+  'app',
+  'menu/buttons/tabulation'
+], function (app, tabulationButton) {
   var tabulation = {};
 
   /**
@@ -19,7 +20,10 @@ define([
             after = selection.substring(i + 2);
             selection = before + after;
           }
-          if (selection.charAt(i + 1) === ' ' && selection.charAt(i + 2) === ' ' && selection.charAt(i + 3) === ' ' && selection.charAt(i + 4) === ' ') {
+          if (selection.charAt(i + 1) === ' ' && 
+              selection.charAt(i + 2) === ' ' && 
+              selection.charAt(i + 3) === ' ' && 
+              selection.charAt(i + 4) === ' ') {
             after = selection.substring(i + 5);
             selection = before + after;
           }
@@ -137,7 +141,12 @@ define([
   };
 
 
-  input.addEventListener('keydown', function (e) {
+  app.input.addEventListener('keydown', function (e) {
+    //console.log(tabulation)
+    // if(tabulationButton.active == false && actualKey === 9){
+    //   //console.log('OK');
+    //   app.input.value = app.input.value.split('    ').join('\t');
+    // }
     var actualKey = (e || window.event).which; //code clavier de la touche appuyé
     var shiftKey = (e || window.event).shiftKey; //booleen : true si shift appuyé
 
@@ -151,6 +160,9 @@ define([
     if(!tabulation.writeTabulation(this, actualKey, e, shiftKey, selection)) {
       tabulation.unWriteTabulation(this, actualKey, e, shiftKey, previousChar, nextChar, selection);
     }
+    // if(tabulationButton.active == false && actualKey === 9){
+    //   app.input.value = app.input.value.split('\t').join('    ');
+    // }
   });
 
   return tabulation;

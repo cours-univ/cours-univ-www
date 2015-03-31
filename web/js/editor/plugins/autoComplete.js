@@ -43,13 +43,13 @@ define([
     for(var i = 0; i < character.length; i++){
       //Supprime de egalement le caractere de droite s'il est l'oppose du caractere de gauche
       if(actualKey === 8 && previousChar === character[i].charac && nextChar === character[i].characOppos){
-        console.log('delete normal');
+        //console.log('delete normal');
         deleteChar.deleteRight(self);
         return true;
       }
       //Si on ecrit ' () ' et qu'on rajoute ' ) ' permet de ne pas ecrire ca ' ()) '
       if((actualKey === character[i].keyCodeCharacOppos || actualKey === character[i].keyCodeCharacOppos2) && nextChar === character[i].characOppos){
-        console.log('delete droite');
+        //console.log('delete droite');
         deleteChar.deleteRight(self);
         return true;
       }
@@ -65,7 +65,7 @@ define([
     //caractere avant et apres le curseur
     var previousChar = this.value.substring((this.selectionStart-1), this.selectionStart);
     var nextChar = this.value.substring(this.selectionStart, (this.selectionStart+1));
-    console.log('autocomplete');
+    //console.log('autocomplete');
     if(button.active && !autoComplete.deleteAutoComplete(this, actualKey, nextChar, previousChar)){
       autoComplete.autoComplete(this, actualKey, selection);
     }
