@@ -45,7 +45,7 @@ define([
   });
 
   // Au clic sur un dropdown
-  $("#menu .dropdown").mouseover(function()
+  $("#menu .dropdown").mouseenter(function()
   {
     $(this).addClass("open");
   });
@@ -53,5 +53,13 @@ define([
   $("#menu .dropdown").mouseleave(function()
   {
     $(this).removeClass("open");
+  });
+
+  $("#menu .dropdown > .button").click(function()
+  {
+    if ($(this).parent().hasClass("open"))
+      $(this).parent().removeClass("open");
+    else
+      $(this).parent().addClass("open");
   });
 })
