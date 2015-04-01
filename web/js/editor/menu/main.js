@@ -1,13 +1,20 @@
 define([
   'jquery',
+  'height',
   'menu/buttons/autocomplete',
   'menu/buttons/raccourcis',
   'menu/buttons/tabulation',
   'loadMarkdown'
-], function($) {
+], function($, updateHeight) {
   // Regler la largeur des circle_on_off pour qu'ils soient carrés (rond avec les angles arrondis)
   var height = $('#menu > .button .circle_on_off').height();
   $('#menu .button .circle_on_off').css({ 'width' : height + 'px' } );
+
+  // Au redimentionnement de la fenetre
+  $( window ).resize(function()
+  {
+    updateHeight();
+  })
 
 // Au clic sur la fleche
   $('#menu .hide_buton').click(function()
@@ -23,10 +30,6 @@ define([
       // Changer le sens de la fleche
       $(this).removeClass("down");
       $(this).addClass("up");
-
-      // Redimentionner et replacer l'input et le result
-      $('#input, #result').css({ 'height' : $(window).height() - $('#menu').height() + 'px' });
-      $('#input, #result').css({ 'top' : $('#menu').height() + 'px' });
     }
 
     // Si le menu n'est pas chaché
@@ -37,11 +40,9 @@ define([
       // Changer le sens de la fleche
       $(this).removeClass("up");
       $(this).addClass("down");
-
-      // Redimentionner et replacer l'input et le result
-      $('#input, #result').css({ 'height' : '100%' });
-      $('#input, #result').css({ 'top' : '0px' });
     }
+
+    updateHeight();
   });
 
   // Au clic sur un dropdown

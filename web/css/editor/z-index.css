@@ -3,6 +3,11 @@
 	z-index: 1000;
 }
 
+#status-bar
+{
+	z-index: 150;
+}
+
 #shortcuts
 {
 	z-index: 140;

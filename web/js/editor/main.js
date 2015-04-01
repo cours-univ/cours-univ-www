@@ -19,6 +19,7 @@ require([
   'plugins/tabulation',
   'plugins/wordCounter',
   'plugins/splashScreen',
+  'height',
   'menu/main'
 ], function(app, compiler, $) {
   compiler.handle();

@@ -77,4 +77,29 @@ body
 			-moz-transform: translate(-50%, -50%);
 			-o-transform: translate(-50%, -50%);
 			-ie-transform: translate(-50%, -50%);
-		}	 
+		}
+
+	#status-bar
+	{
+		position: fixed;
+		height: 20px;
+		width: 100%;
+		top: 100%;
+		left: 0;
+
+		transform: translate(0, -100%);
+		-webkit-transform: translate(0, -100%);
+		-moz-transform: translate(0, -100%);
+		-o-transform: translate(0, -100%);
+		-ie-transform: translate(0, -100%);
+
+		background-color: white;
+
+		border: 1px solid #999;
+
+		padding: 2px;
+
+		font-size: 12px;
+
+		box-sizing: border-box;
+	}
